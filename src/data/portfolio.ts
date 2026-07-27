@@ -63,7 +63,7 @@ export const identity = {
   github: "https://github.com/Kesehet",
   linkedin: "https://www.linkedin.com/in/hamood-siddiqui/",
   email: "",
-  canonicalUrl: "https://hamoodsiddiqui.com",
+  canonicalUrl: "https://kesehet.github.io",
   socialImage: "/images/social-preview.svg"
 } as const;
 

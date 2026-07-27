@@ -2,30 +2,24 @@
 
 The site builds to static files in `dist/` and has no PHP requirement for normal rendering.
 
-## GitHub Pages on `Kesehet/portfolio`
+## GitHub Pages on `Kesehet/Kesehet.github.io`
 
-The GitHub repository is intentionally not created or published until content and security review.
+The repository is a GitHub user site published at `https://kesehet.github.io/`.
 
-After approval:
+The workflow in `.github/workflows/deploy.yml` automatically builds, validates, and deploys the site whenever `main` is pushed. It can also be started manually from the Actions tab.
 
-1. Create the repository as `Kesehet/portfolio`.
-2. Push the reviewed `feat/professional-portfolio` branch and merge through the chosen review process.
-3. Build with:
+To reproduce the production build locally:
 
    ```powershell
    $env:SITE_URL = "https://kesehet.github.io"
-   $env:BASE_PATH = "/portfolio/"
+   $env:BASE_PATH = "/"
    $env:PUBLIC_CONTACT_ENDPOINT = "https://your-approved-api-host/contact.php"
    npm ci
    npm run build
    npm run qa
    ```
 
-4. Deploy `dist/` through a GitHub Actions Pages workflow using the official `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages` actions pinned to reviewed versions.
-5. Configure repository Settings → Pages → GitHub Actions.
-6. Verify `/portfolio/`, project detail routes, assets, the 404 page and form endpoint from the production URL.
-
-No GitHub workflow is included yet because action versions and repository publication are part of the final review gate.
+In the repository, configure **Settings → Pages → Source** as **GitHub Actions**. Do not select a branch-based deployment because that invokes the Jekyll builder against the Astro source files.
 
 ## Custom domain
 
@@ -54,7 +48,7 @@ Frontend configuration is not secret. SMTP host, username, password, recipient, 
 
 - Confirm every navigation route works with JavaScript disabled.
 - Confirm direct loads of all generated project URLs.
-- Confirm assets work under `/portfolio/` and `/`.
+- Confirm assets work from the root URL.
 - Confirm the generated output contains no unsafe/withheld repository URLs.
 - Confirm the endpoint rejects unapproved origins and non-POST methods.
 - Confirm JSON and redirect form responses.

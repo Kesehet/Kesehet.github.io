@@ -30,13 +30,13 @@ Open the local URL printed by Astro.
 ## Environment values
 
 ```text
-SITE_URL=https://hamoodsiddiqui.com
+SITE_URL=https://kesehet.github.io
 BASE_PATH=/
 PUBLIC_CONTACT_ENDPOINT=https://api.example.com/contact.php
 ```
 
 - `SITE_URL` is the canonical origin used in metadata.
-- `BASE_PATH` is `/portfolio/` for repository-scoped GitHub Pages and `/` for a custom domain.
+- `BASE_PATH` is `/` because this user site is published from `Kesehet/Kesehet.github.io`.
 - `PUBLIC_CONTACT_ENDPOINT` is intentionally public configuration. It contains no secret.
 
 When the contact endpoint is still `api.example.com`, the form is visibly disabled.
