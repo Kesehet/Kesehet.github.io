@@ -1,34 +1,71 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Callout from "../components/Callout.astro";
-import { experienceNotes } from "../data/portfolio";
+import SectionIntro from "../components/SectionIntro.astro";
+import { experienceContexts, experienceNotes } from "../data/portfolio";
 ---
 
 <BaseLayout
   title="Experience"
-  description="Verified technical experience across backend systems, AI integrations, full-stack applications and real-time media."
+  description="Nearly eight years of hands-on experience across backend systems, AI integrations, full-stack applications and service platforms."
   path="/experience/"
 >
   <header class="page-hero">
     <div class="shell">
       <p class="eyebrow">Experience</p>
-      <h1>Responsibility shown through systems and decisions.</h1>
+      <h1>Nearly eight years of building systems, services and practical products.</h1>
       <p class="lead">
-        Formal employer dates are being reconciled before publication. Until then, this page stays
-        useful by showing the technical responsibilities directly supported by the work.
+        My work includes Media Pitch and service platforms such as MarketGenics and Fill Masjid,
+        alongside backend, AI, automation, full-stack and real-time projects. This portfolio focuses
+        on what I helped build, the responsibilities involved and the engineering problems tackled.
       </p>
     </div>
   </header>
 
   <section class="section">
     <div class="shell">
+      <SectionIntro
+        eyebrow="Service context"
+        title="Experience shaped by real platforms and operating needs."
+        copy="This work spans customer-facing platforms, internal operations, AI services and community-focused real-time systems."
+      />
+      <div class="experience-list">
+        {
+          experienceContexts.map((item, index) => (
+            <article class="experience-card">
+              <span class="eyebrow">{String(index + 1).padStart(2, "0")}</span>
+              <h3>
+                {
+                  item.href ? (
+                    <a href={item.href} target="_blank" rel="noopener">{item.title}</a>
+                  ) : (
+                    item.title
+                  )
+                }
+              </h3>
+              <p>{item.copy}</p>
+              {item.href && <small>{new URL(item.href).hostname.replace(/^www\./, "")} ↗</small>}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="shell">
+      <SectionIntro
+        eyebrow="Technical experience"
+        title="Responsibility demonstrated through systems and decisions."
+        copy="The recurring patterns below are supported by the implementation stories across this portfolio."
+      />
       {
         experienceNotes.map((item, index) => (
           <div class="achievement-row">
             <strong>{String(index + 1).padStart(2, "0")} · {item.title}</strong>
             <div>
               <p>{item.copy}</p>
-              <p><small>Repository evidence: {item.proof}</small></p>
+              <p><small>Project evidence: {item.proof}</small></p>
             </div>
           </div>
         ))
@@ -36,7 +73,7 @@ import { experienceNotes } from "../data/portfolio";
     </div>
   </section>
 
-  <section class="section section-soft">
+  <section class="section">
     <div class="shell split-layout">
       <div class="sticky-label">
         <p class="eyebrow">Delivery approach</p>
@@ -64,9 +101,9 @@ import { experienceNotes } from "../data/portfolio";
   </section>
 
   <Callout
-    title="Need this kind of ownership on a software problem?"
-    copy="Share the workflow that is currently slow, disconnected or difficult to reason about."
+    title="Need experienced ownership of a software problem?"
+    copy="Share the workflow that is slow, disconnected or difficult to maintain. I can help turn it into a clear technical plan and working system."
     href="/contact/"
-    action="Discuss the work"
+    action="Contact Hamood"
   />
 </BaseLayout>

@@ -7,13 +7,12 @@ const staticRoutes = [
   "about/",
   "experience/",
   "skills/",
-  "resume/",
   "contact/",
   "privacy/"
 ];
 
 export const GET: APIRoute = ({ site }) => {
-  const origin = site ?? new URL("https://hamoodsiddiqui.com");
+  const origin = site ?? new URL("https://kesehet.github.io");
   const base = import.meta.env.BASE_URL;
   const routes = [
     ...staticRoutes,

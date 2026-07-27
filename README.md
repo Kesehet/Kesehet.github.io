@@ -2,7 +2,7 @@
 
 Static portfolio for **Hamood Siddiqui**, Python & Full-Stack Developer.
 
-The portfolio is evidence-led: project stories are generated from structured data, lead with the major engineering problem tackled, and distinguish repository-verified implementation from unconfirmed context or proposed future architecture.
+The portfolio presents nearly eight years of experience through focused project stories, major engineering challenges and practical implementation decisions.
 
 ## Stack
 
@@ -10,7 +10,6 @@ The portfolio is evidence-led: project stories are generated from structured dat
 - TypeScript content model
 - Semantic HTML and custom CSS
 - Small progressive-enhancement scripts only
-- Separate PHP/SMTP contact endpoint example
 
 ## Local setup
 
@@ -32,14 +31,10 @@ Open the local URL printed by Astro.
 ```text
 SITE_URL=https://kesehet.github.io
 BASE_PATH=/
-PUBLIC_CONTACT_ENDPOINT=https://api.example.com/contact.php
 ```
 
 - `SITE_URL` is the canonical origin used in metadata.
 - `BASE_PATH` is `/` because this user site is published from `Kesehet/Kesehet.github.io`.
-- `PUBLIC_CONTACT_ENDPOINT` is intentionally public configuration. It contains no secret.
-
-When the contact endpoint is still `api.example.com`, the form is visibly disabled.
 
 ## Content editing
 
@@ -72,18 +67,8 @@ The QA script validates generated HTML, checks internal links/assets, verifies i
 
 Browser-based responsive and axe checks are documented in `FINAL_QA.md`.
 
-## Contact server
-
-See [CONTACT_API.md](CONTACT_API.md) and [server-example/contact.php](server-example/contact.php). The static frontend never contains SMTP credentials.
-
 ## Publication status
 
-Do not publish or merge until:
+The public portfolio is deployed at `https://kesehet.github.io/`. Repository links that require security remediation or media approval remain withheld from the generated site.
 
-1. résumé conflicts are resolved;
-2. the public email is confirmed;
-3. exposed credentials/keys in audited repositories are rotated and removed;
-4. client/project media permission is confirmed;
-5. generated content and case-study wording are reviewed.
-
-See [PROJECT_AUDIT.md](PROJECT_AUDIT.md), [PORTFOLIO_PLAN.md](PORTFOLIO_PLAN.md), and [CONTENT_TODOS.md](CONTENT_TODOS.md).
+See [PROJECT_AUDIT.md](PROJECT_AUDIT.md) and [CONTENT_TODOS.md](CONTENT_TODOS.md) for internal maintenance notes.

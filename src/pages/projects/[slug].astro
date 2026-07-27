@@ -58,7 +58,7 @@ const schema =
       <div>
         <div class="project-fact"><span>Status</span><strong>{project.statusLabel}</strong></div>
         <div class="project-fact"><span>Category</span><strong>{project.category}</strong></div>
-        <div class="project-fact"><span>Evidence</span><strong>{project.verificationStatus}</strong></div>
+        <div class="project-fact"><span>Technical review</span><strong>{project.verificationStatus}</strong></div>
         <div class="project-fact"><span>Stack</span><strong>{project.technologies.join(", ")}</strong></div>
       </div>
     </div>
@@ -175,17 +175,17 @@ const schema =
     </section>
 
     <aside class="verification-note">
-      <strong>Evidence note:</strong> This case study distinguishes repository-verified implementation
-      from items that still need confirmation. It does not claim unverified usage, performance,
-      employment context or production outcomes.
+      <strong>Engineering context:</strong> This case study focuses on the implemented system,
+      architectural decisions and practical lessons. Performance or adoption figures are included
+      only when they are documented.
     </aside>
   </article>
 
   <Callout
     label="Next project"
-    title="Need a similar system boundary worked through?"
-    copy="Tell me the users, workflow and constraints. We can start from the operational problem and identify the smallest useful system."
+    title="Need an experienced developer to work through a similar system?"
+    copy="Share the users, workflow and constraints. I can help define the system boundary and turn it into a practical implementation plan."
     href="/contact/"
-    action="Discuss a project"
+    action="Contact Hamood"
   />
 </BaseLayout>

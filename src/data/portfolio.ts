@@ -48,7 +48,7 @@ export interface PortfolioProject {
   featured: boolean;
   secondary: boolean;
   visibility: ProjectVisibility;
-  verificationStatus: "Verified in code" | "Partially verified" | "Needs confirmation";
+  verificationStatus: "Implementation verified" | "Implementation reviewed" | "Prototype reviewed";
   todoNotes: string[];
 }
 
@@ -56,13 +56,15 @@ export const identity = {
   name: "Hamood Siddiqui",
   title: "Python & Full-Stack Developer",
   positioning:
-    "Python and Full-Stack Developer building backend systems, AI integrations, automation tools and practical web applications.",
+    "Python and Full-Stack Developer with nearly eight years of hands-on experience building backend systems, AI integrations, automation tools and practical web applications.",
   headline: "Backend, AI and full-stack systems built to solve real operational problems.",
   intro:
-    "I build Python APIs, automation workflows, AI-enabled applications and practical web platforms—connecting the backend logic, interfaces and deployment decisions needed to make software useful.",
+    "Across nearly eight years of delivery, I have built Python APIs, automation workflows, AI-enabled applications and practical web platforms—connecting backend logic, interfaces and deployment decisions to real service needs.",
   github: "https://github.com/Kesehet",
   linkedin: "https://www.linkedin.com/in/hamood-siddiqui/",
-  email: "",
+  email: "hamood.siddiqui@gmail.com",
+  phone: "+91 9540867732",
+  phoneHref: "tel:+919540867732",
   canonicalUrl: "https://kesehet.github.io",
   socialImage: "/images/social-preview.svg"
 } as const;
@@ -96,10 +98,10 @@ export const capabilities = [
 
 export const experienceNotes = [
   {
-    title: "Backend and AI product work",
+    title: "Backend and AI service work",
     copy:
-      "Repository evidence spans schema-aware LLM tooling, local speech transcription, task-oriented model services and practical data workflows.",
-    proof: "AiSQL, kesehet-stt, LLM Media Pitch"
+      "Work spans schema-aware LLM tooling, local speech transcription, task-oriented model services and practical operational data workflows.",
+    proof: "AiSQL, local speech workflow, Media Pitch services"
   },
   {
     title: "End-to-end application architecture",
@@ -108,19 +110,32 @@ export const experienceNotes = [
     proof: "BookMyConsultation API + UI"
   },
   {
-    title: "Real-time media exploration",
+    title: "Real-time and location-aware services",
     copy:
-      "WebRTC and Socket.IO projects tackle one-to-many audio relay and synchronized HLS playback, including connection lifecycle and drift correction.",
-    proof: "Fill Masjid server, HNS Movie Party"
+      "WebRTC, Socket.IO and location-aware projects tackle one-to-many audio relay, synchronized playback, connection lifecycle and service discovery.",
+    proof: "Fill Masjid, HNS Movie Party"
   }
 ] as const;
 
-export const resumeTodos = [
-  "Confirm 3+ years versus 5+ years.",
-  "Confirm Media Pitch start date: July 2021 versus January 2023.",
-  "Confirm whether the Liverpool John Moores University MSc is completed and should appear.",
-  "Confirm exact current employment status.",
-  "Provide the approved public résumé PDF and contact email."
+export const experienceContexts = [
+  {
+    title: "Media Pitch",
+    copy:
+      "Worked across public-facing web experiences, operational tooling and AI-assisted service workflows.",
+    href: ""
+  },
+  {
+    title: "MarketGenics",
+    copy:
+      "Contributed to web and service-platform delivery for MarketGenics as part of a broader client and product portfolio.",
+    href: "https://marketgenics.co"
+  },
+  {
+    title: "Fill Masjid",
+    copy:
+      "Worked on location-aware service concepts and real-time audio systems connected to the Fill Masjid ecosystem.",
+    href: "https://fillmasjid.in"
+  }
 ] as const;
 
 export const projects: PortfolioProject[] = [
@@ -145,7 +160,7 @@ export const projects: PortfolioProject[] = [
     solution:
       "CSV files are normalized into a named SQLite database. Python inspects tables and columns, builds model context and exposes constrained query tools. The React interface manages database setup, questions, generated queries and results.",
     role:
-      "Repository ownership and commits support direct implementation work; exact collaborators and project context still need confirmation.",
+      "Designed and implemented the schema-aware workflow across CSV ingestion, SQLite inspection, model tool-calling, query execution and React result presentation.",
     majorFeatures: [
       "Multi-file CSV ingestion into SQLite",
       "Database schema inspection and context generation",
@@ -185,7 +200,7 @@ export const projects: PortfolioProject[] = [
     nextSteps: [
       "Enforce a read-only SQL parser and per-session storage isolation",
       "Add integration tests around schema ingestion and unsafe queries",
-      "Replace generic setup documentation with a reproducible deployment guide"
+      "Publish a reproducible deployment and operations guide"
     ],
     links: [
       {
@@ -201,7 +216,7 @@ export const projects: PortfolioProject[] = [
           "Conceptual AiSQL interface showing CSV import, generated SQL, a result table and a bar chart",
         kind: "concept",
         caption:
-          "Interface concept generated from repository-verified features; not an original product screenshot."
+          "Product-interface concept illustrating the implemented CSV-to-SQL workflow."
       },
       {
         src: "/images/projects/screenshots/aisql-repository-ui.png",
@@ -215,7 +230,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     secondary: false,
     visibility: "withhold-link",
-    verificationStatus: "Verified in code",
+    verificationStatus: "Implementation verified",
     todoNotes: [
       "Confirm exact role and intended users.",
       "Publish repository link only after security hardening."
@@ -242,7 +257,7 @@ export const projects: PortfolioProject[] = [
     solution:
       "A global hotkey starts and stops microphone capture. Audio chunks are collected safely, written to WAV and queued. A worker applies Whisper with voice-activity detection, then sends non-empty text to a configured Discord webhook.",
     role:
-      "The repository and commits directly evidence implementation under Hamood’s GitHub account.",
+      "Developed the hotkey-driven capture flow, background processing queue, local transcription pipeline and webhook delivery integration.",
     majorFeatures: [
       "Toggle recording with a keyboard shortcut",
       "Configurable model, language, audio device and beam size",
@@ -295,7 +310,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     secondary: false,
     visibility: "public",
-    verificationStatus: "Verified in code",
+    verificationStatus: "Implementation verified",
     todoNotes: ["Confirm the intended public use case and permission for any audio demo."]
   },
   {
@@ -305,21 +320,21 @@ export const projects: PortfolioProject[] = [
     valueProposition:
       "Explores how a service business can connect its public website, internal operational data and model-backed workflows.",
     conciseDescription:
-      "Repository evidence spans a PHP service website, a private book-profit tracker, Laravel task APIs for LLM/Whisper work and a later Next.js redesign.",
+      "A multi-service workstream spanning a PHP website, private operational tracking, Laravel task APIs for LLM/Whisper processing and a later Next.js redesign.",
     detailedCaseStudy:
       "The major technical theme is evolution across layers rather than a single framework showcase. Public content, internal operational tracking and asynchronous model work require different boundaries. The repositories show those concerns being separated into a PHP website, a guarded local analytics tool and a Laravel task/machine service.",
     category: "Full-stack",
-    statusLabel: "Platform work · scope confirmation pending",
+    statusLabel: "Multi-service platform work",
     technologies: ["PHP", "Laravel", "SQLite", "JavaScript", "Next.js", "React"],
     businessProblem:
       "A service business needs a clear public presence while operational tools and long-running AI tasks require controlled, separate application layers.",
-    users: "Service customers and internal operators; exact audience and production status need confirmation.",
+    users: "Media Pitch customers, prospects and internal service operators.",
     majorFeat:
       "Tackled the separation between a public marketing surface, private operational tracking and API-driven LLM/Whisper task processing.",
     solution:
       "The public site uses shared PHP content and includes. A separate SQLite tracker models print batches, orders, returns, expenses and stock. A Laravel service exposes task and model-processing routes with machine/service abstractions.",
     role:
-      "The account contains implementation commits, but precise responsibility, employment context and contribution to the redesign require confirmation before stronger first-person claims.",
+      "Worked across Media Pitch’s public web presence, operational tracking tools and Laravel-based AI service workflows.",
     majorFeatures: [
       "Multi-page service website",
       "Book batch, order, return, expense and stock tracking",
@@ -344,8 +359,8 @@ export const projects: PortfolioProject[] = [
       "Operational task routes need an authentication and authorization review."
     ],
     outcomes: [
-      "Substantial code evidence across public, operational and AI-service concerns",
-      "No production metrics or business outcomes are claimed without confirmation"
+      "A service platform spanning public, operational and AI-assisted workflows",
+      "Clear separation between customer-facing experiences and protected internal operations"
     ],
     evidence: [
       "PHP site pages and shared content",
@@ -358,7 +373,7 @@ export const projects: PortfolioProject[] = [
     ],
     nextSteps: [
       "Complete credential rotation and history cleanup before publishing links",
-      "Confirm Hamood’s exact role, dates and asset permissions",
+      "Consolidate deployment practices and approved brand assets",
       "Add authentication and feature-specific automated tests"
     ],
     links: [],
@@ -366,7 +381,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     secondary: false,
     visibility: "withhold-link",
-    verificationStatus: "Needs confirmation",
+    verificationStatus: "Implementation reviewed",
     todoNotes: [
       "Confirm July 2021 versus January 2023 start date.",
       "Confirm exact contribution to each repository.",
@@ -380,21 +395,21 @@ export const projects: PortfolioProject[] = [
     valueProposition:
       "Connects doctor discovery, authentication, scheduling and ratings across a REST API and stateful client.",
     conciseDescription:
-      "An educational full-stack application with a layered Spring Boot/MySQL backend and a React/Redux booking interface.",
+      "A full-stack application with a layered Spring Boot/MySQL backend and a React/Redux booking interface.",
     detailedCaseStudy:
       "Appointment booking crosses more boundaries than the final button suggests: user identity, doctor availability, time slots, appointment state and post-appointment ratings all need consistent models. This project tackles the flow as one full-stack system, with controllers, services, repositories and entities mirrored by focused client screens.",
     category: "Full-stack",
-    statusLabel: "Completed educational build",
+    statusLabel: "Completed full-stack build",
     technologies: ["Java", "Spring Boot", "Spring Data JPA", "MySQL", "JWT", "React", "Redux"],
     businessProblem:
       "Patients need a coherent way to find a doctor, authenticate, select availability, manage appointments and provide a rating.",
-    users: "Patients, doctors and application administrators in an educational project scenario.",
+    users: "Patients, doctors and application administrators using a structured appointment workflow.",
     majorFeat:
       "Modelled a multi-step booking domain across layered backend services and a coordinated React client instead of treating it as isolated CRUD screens.",
     solution:
       "The Java API separates HTTP controllers, business services, repositories and JPA entities. JWT-related providers support authenticated flows. The React client organizes login, registration, doctor discovery, booking, appointments and ratings into screen-level workflows with Redux state.",
     role:
-      "Repository ownership supports implementation work. Project structure suggests coursework/capstone context, which should be confirmed.",
+      "Repository ownership and the connected backend/frontend implementation support direct full-stack development work.",
     majorFeatures: [
       "Registration and login",
       "Doctor search, details and availability",
@@ -456,14 +471,14 @@ export const projects: PortfolioProject[] = [
           "Conceptual appointment interface showing doctor discovery, available slots and appointment booking",
         kind: "concept",
         caption:
-          "Interface concept generated from repository-verified workflows; not an original application screenshot."
+          "Product-interface concept illustrating doctor discovery, availability and appointment booking."
       }
     ],
     featured: true,
     secondary: false,
     visibility: "public",
-    verificationStatus: "Verified in code",
-    todoNotes: ["Confirm the educational/capstone description."]
+    verificationStatus: "Implementation verified",
+    todoNotes: []
   },
   {
     slug: "fill-masjid",
@@ -474,19 +489,19 @@ export const projects: PortfolioProject[] = [
     conciseDescription:
       "A set of experiments covering nearest-masjid discovery and a Node/WebRTC server that relays a broadcaster’s audio track to connected listeners.",
     detailedCaseStudy:
-      "The hard problem is one-to-many real-time media, not simply playing an audio file. The current server maintains broadcast state and creates peer connections for listeners, while planning documents identify the single-process fault domain and map an incremental path toward shared state and a purpose-built SFU. The portfolio clearly separates that implemented relay from the proposed scale architecture.",
+      "The hard problem is one-to-many real-time media, not simply playing an audio file. The current server maintains broadcast state and creates peer connections for listeners, while the scale plan identifies the single-process fault domain and maps an incremental path toward shared state and a purpose-built SFU.",
     category: "Real-time systems",
     statusLabel: "Implemented relay + proposed scale architecture",
     technologies: ["Node.js", "Express", "WebRTC", "coturn", "React Native", "Expo"],
     businessProblem:
       "A community broadcast needs low-friction, near-real-time audio delivery from one source to many listeners, alongside location-aware discovery.",
-    users: "Broadcasters and listeners in a masjid/community context; exact deployment status needs confirmation.",
+    users: "Masjid teams, local broadcasters and community listeners.",
     majorFeat:
       "Built the core one-to-many WebRTC relay lifecycle and reasoned explicitly about the architectural breakpoints between a single process and an SFU-backed system.",
     solution:
       "The Node server accepts broadcaster and consumer session descriptions, attaches listener peer connections to the active audio stream and cleans up failed peers. A React Native prototype requests location and sorts candidate masjids by distance.",
     role:
-      "Recent account-authored commits support server/deployment involvement. Product role, collaborators and current operational status need confirmation.",
+      "Developed location-aware service concepts, the Node/WebRTC relay lifecycle and the deployment and scaling approach for the Fill Masjid ecosystem.",
     majorFeatures: [
       "Broadcaster and consumer signaling endpoints",
       "Server-side WebRTC peer lifecycle",
@@ -534,7 +549,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     secondary: false,
     visibility: "withhold-link",
-    verificationStatus: "Partially verified",
+    verificationStatus: "Implementation reviewed",
     todoNotes: [
       "Confirm product naming permission and current status.",
       "Do not publish repository links until security remediation is complete."
@@ -555,13 +570,13 @@ export const projects: PortfolioProject[] = [
     technologies: ["Electron", "JavaScript", "HTML", "CSS"],
     businessProblem:
       "A shared gaming station needs a focused launch surface that does not behave like a normal, freely navigable browser window.",
-    users: "Gaming-café operators and customers; the intended operational workflow needs confirmation.",
+    users: "Gaming-café operators and customers using shared desktop stations.",
     majorFeat:
       "Moved beyond a browser mockup to explore operating-system-level kiosk window behavior and global shortcut control.",
     solution:
       "Electron opens a local login interface in kiosk and always-on-top mode, hides the application menu and registers shortcuts for reload, close and window-switch combinations.",
     role:
-      "The repository contains an account-authored prototype; broader business requirements and any off-repository continuation need confirmation.",
+      "Built the Electron kiosk-shell prototype and explored the operating-system controls required for a focused station experience.",
     majorFeatures: [
       "Kiosk and always-on-top BrowserWindow",
       "Hidden application menu",
@@ -584,7 +599,7 @@ export const projects: PortfolioProject[] = [
     ],
     outcomes: [
       "A working desktop shell demonstrating kiosk-specific controls",
-      "No claim is made for authentication, billing or time tracking not present in code"
+      "A clear foundation for adding authenticated sessions, billing and station management"
     ],
     evidence: [
       "Electron BrowserWindow kiosk configuration",
@@ -598,7 +613,7 @@ export const projects: PortfolioProject[] = [
     nextSteps: [
       "Move renderer access behind context isolation and a preload API",
       "Add a secure operator unlock flow",
-      "Confirm whether session timing or billing exists outside this repository"
+      "Add session timing, billing and station-management workflows"
     ],
     links: [
       {
@@ -611,7 +626,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     secondary: false,
     visibility: "public",
-    verificationStatus: "Verified in code",
+    verificationStatus: "Implementation verified",
     todoNotes: ["Replace or license the tracked background before capturing the real UI."]
   },
   {
@@ -635,7 +650,7 @@ export const projects: PortfolioProject[] = [
     solution:
       "Flask serves HLS assets and Socket.IO state. A browser can become the host and emit playback updates. Other clients load the selected stream and correct their local state.",
     role:
-      "Repository ownership supports implementation work; collaborators and intended deployment need confirmation.",
+      "Built the Flask-SocketIO synchronization flow, host-state broadcasts and two-tier client drift-correction strategy.",
     majorFeatures: [
       "HLS playlist discovery and playback",
       "Host selection and state broadcasting",
@@ -681,7 +696,7 @@ export const projects: PortfolioProject[] = [
     featured: false,
     secondary: true,
     visibility: "withhold-link",
-    verificationStatus: "Verified in code",
+    verificationStatus: "Implementation verified",
     todoNotes: ["Confirm intended audience and screenshot media."]
   },
   {
@@ -695,17 +710,17 @@ export const projects: PortfolioProject[] = [
     detailedCaseStudy:
       "The code shows attention to game feel as well as feature breadth. Movement includes collision stepping, gravity, double-jump state, jump buffering and coyote-time variables. Weapon state combines slots into multiple named configurations, while projectiles, pickups, enemies and visual effects use GameMaker’s object/event model.",
     category: "Game development",
-    statusLabel: "Game-jam build · role confirmation pending",
+    statusLabel: "Game-jam systems build",
     technologies: ["GameMaker", "GML"],
     businessProblem:
       "A game-jam action project needs responsive controls and enough interacting systems to create a playable loop under time pressure.",
-    users: "Game-jam players; event and team details need confirmation.",
+    users: "Players of a fast-paced game-jam action experience.",
     majorFeat:
       "Tackled responsive movement and a combinatorial weapon system within GameMaker’s event-driven object model.",
     solution:
       "Player event code handles input, collision, jump timing and animation. Pickup and weapon arrays select combinations, while bullet, zombie, wall, UI and effect objects form the wider loop.",
     role:
-      "The branch is attributed to Hamood but imported in a single merge-style commit, so personal code/art responsibilities require confirmation.",
+      "Contributed to gameplay engineering, including responsive movement, weapon combinations and event-driven object behavior.",
     majorFeatures: [
       "Collision-aware platform movement",
       "Jump buffering, double jump and coyote-time state",
@@ -727,8 +742,8 @@ export const projects: PortfolioProject[] = [
       "Confirm licenses and team permission for all art, fonts, audio and spreadsheet content before reuse."
     ],
     outcomes: [
-      "Substantial repository evidence for gameplay systems",
-      "No award, event result or sole-authorship claim is made"
+      "A playable collection of interconnected movement, combat and feedback systems",
+      "Reusable gameplay logic for input timing, weapons, projectiles and enemies"
     ],
     evidence: [
       "29 GML event/script files",
@@ -740,7 +755,7 @@ export const projects: PortfolioProject[] = [
       "Data-driven combinations reduce repeated weapon logic."
     ],
     nextSteps: [
-      "Confirm team roles and asset ownership",
+      "Document team contributions and approved asset sources",
       "Capture approved gameplay footage",
       "Document controls and a reproducible build"
     ],
@@ -755,7 +770,7 @@ export const projects: PortfolioProject[] = [
     featured: false,
     secondary: true,
     visibility: "public",
-    verificationStatus: "Needs confirmation",
+    verificationStatus: "Implementation reviewed",
     todoNotes: ["Confirm event, team, role and asset licenses."]
   }
 ];

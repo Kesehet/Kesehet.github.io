@@ -1,45 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { identity } from "../data/portfolio";
 ---
 
 <BaseLayout
-  title="Contact privacy notice"
-  description="Privacy notice for the Hamood Siddiqui portfolio contact form."
+  title="Contact privacy"
+  description="Privacy information for contacting Hamood Siddiqui about professional work."
   path="/privacy/"
 >
   <header class="page-hero">
     <div class="narrow">
       <p class="eyebrow">Privacy</p>
-      <h1>Contact form privacy notice.</h1>
-      <p class="lead">A concise explanation of what the enquiry form collects and why.</p>
+      <h1>Professional contact and privacy.</h1>
+      <p class="lead">How information shared through email, telephone or professional profiles is handled.</p>
     </div>
   </header>
   <article class="section narrow prose">
-    <h2>Information collected</h2>
+    <h2>Information you choose to share</h2>
     <p>
-      The form collects your name, email address, message and consent. Company and project type are
-      optional. A hidden anti-spam field and basic request metadata may be processed to prevent abuse.
+      When you contact me, I receive the details included in your message or call, such as your
+      name, contact information, organization and project context.
     </p>
-    <h2>Purpose</h2>
+    <h2>How it is used</h2>
     <p>
-      The information is used only to understand and respond to your software-development enquiry,
-      maintain necessary correspondence and protect the form from spam or misuse.
+      Contact information is used to understand your enquiry, respond to you and maintain the
+      correspondence needed for a potential or active professional engagement.
     </p>
-    <h2>Storage and sharing</h2>
+    <h2>Confidential information</h2>
     <p>
-      The static site submits to a separately configured server. The production handler should send
-      mail through an authenticated SMTP provider and retain only the logs necessary for security and
-      delivery. Enquiries should not be sold or used for unrelated marketing.
-    </p>
-    <h2>What not to send</h2>
-    <p>
-      Do not submit passwords, API keys, health records, financial information or other confidential
-      data through the form.
+      Please do not send passwords, API keys, payment information, health records or other
+      sensitive material through an initial enquiry. Secure sharing arrangements can be agreed
+      when a project requires them.
     </p>
     <h2>Your choices</h2>
     <p>
-      You can contact Hamood through LinkedIn instead of using the form. A public privacy-contact
-      email and retention period will be added before production launch.
+      You may ask for a previous enquiry to be corrected or deleted by emailing
+      <a href={`mailto:${identity.email}`}>{identity.email}</a>.
     </p>
   </article>
 </BaseLayout>

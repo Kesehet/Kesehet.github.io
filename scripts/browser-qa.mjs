@@ -87,7 +87,7 @@ try {
   const visibleNavigationLinks = await noScriptPage
     .locator("#primary-navigation a")
     .evaluateAll((links) => links.filter((link) => getComputedStyle(link).display !== "none").length);
-  if (visibleNavigationLinks < 6) {
+  if (visibleNavigationLinks < 5) {
     throw new Error("Mobile navigation is not available when JavaScript is disabled.");
   }
   await noScriptContext.close();

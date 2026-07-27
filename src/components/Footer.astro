@@ -17,17 +17,19 @@ const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
     <div>
       <p class="footer-label">Navigate</p>
       <a href={withBase("/projects/")}>Selected work</a>
-      <a href={withBase("/contact/")}>Discuss a project</a>
+      <a href={withBase("/contact/")}>Contact Hamood</a>
       <a href={withBase("/privacy/")}>Privacy</a>
     </div>
     <div>
       <p class="footer-label">Connect</p>
+      <a href={`mailto:${identity.email}`}>{identity.email}</a>
+      <a href={identity.phoneHref}>{identity.phone}</a>
       <a href={identity.github} rel="me noopener" target="_blank">GitHub</a>
       <a href={identity.linkedin} rel="me noopener" target="_blank">LinkedIn</a>
     </div>
   </div>
   <div class="shell footer-bottom">
     <span>© {year} {identity.name}</span>
-    <span>Built as a static, accessible portfolio.</span>
+    <span>Designed and built by Hamood Siddiqui.</span>
   </div>
 </footer>

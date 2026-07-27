@@ -1,17 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { capabilities, identity, resumeTodos } from "../data/portfolio";
+import { capabilities, experienceContexts, identity } from "../data/portfolio";
 ---
 
 <BaseLayout
-  title="Résumé"
-  description="Résumé overview for Hamood Siddiqui, Python and Full-Stack Developer."
+  title="Experience summary"
+  description="Experience and technical work summary for Hamood Siddiqui, Python and Full-Stack Developer."
   path="/resume/"
 >
   <header class="page-hero">
     <div class="shell">
-      <p class="eyebrow">Résumé</p>
-      <h1>{identity.name}</h1>
+      <p class="eyebrow">Experience summary</p>
+      <h1>Technical experience across products, platforms and service workflows.</h1>
       <p class="lead">{identity.positioning}</p>
     </div>
   </header>
@@ -51,24 +51,21 @@ import { capabilities, identity, resumeTodos } from "../data/portfolio";
         }
       </div>
       <aside>
-        <div class="todo-card">
-          <p class="eyebrow">Publication gate</p>
-          <h2>Résumé facts awaiting confirmation</h2>
-          <p>
-            The downloadable PDF is intentionally withheld until these conflicting details are
-            reconciled:
-          </p>
-          <ul>
-            {resumeTodos.map((todo) => <li>{todo}</li>)}
-          </ul>
-          <button
-            class="button button-secondary"
-            type="button"
-            disabled
-            title="The approved résumé PDF has not been supplied yet"
-          >
-            Download résumé · awaiting approval
-          </button>
+        <div>
+          <p class="eyebrow">Service context</p>
+          <div class="contact-options">
+            {
+              experienceContexts.map((item) =>
+                item.href ? (
+                  <a href={item.href} target="_blank" rel="noopener">
+                    <span>{item.title}</span><span>↗</span>
+                  </a>
+                ) : (
+                  <span class="experience-context-label">{item.title}</span>
+                )
+              )
+            }
+          </div>
         </div>
         <div style="margin-top: 1.5rem">
           <p class="eyebrow">Profiles</p>

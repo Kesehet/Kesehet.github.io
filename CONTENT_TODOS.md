@@ -5,10 +5,10 @@ These items are intentionally unresolved. The site must not guess them.
 ## Resume and identity confirmation
 
 - [ ] Choose a public contact email. A telephone number will not be published by default.
-- [ ] Resolve “3+ years” versus “5+ years.”
+- [x] Public positioning confirmed as nearly eight years of hands-on experience.
 - [ ] Confirm Media Pitch start date: July 2021 versus January 2023.
 - [ ] Confirm Media Pitch role, employer/client naming permission, responsibilities, and end/current date.
-- [ ] Confirm whether the Liverpool John Moores University MSc is completed, in progress, or should be omitted.
+- [x] Omit education and certification details; the portfolio is intentionally experience- and project-led.
 - [ ] Confirm exact current employment status and preferred wording.
 - [ ] Supply the final résumé PDF after the facts above are reconciled.
 - [ ] Confirm any other education, certifications, employers, and dates before adding them.
@@ -85,4 +85,3 @@ These items are intentionally unresolved. The site must not guess them.
 - [ ] Screenshot using self-owned/public-domain video.
 - [ ] Host/listener synchronization capture.
 - [ ] Do not expose a live upload endpoint until authentication, authorization, CORS, and quotas are fixed.
-

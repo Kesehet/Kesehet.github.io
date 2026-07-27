@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Callout from "../../components/Callout.astro";
-import { identity, visibleProjects } from "../../data/portfolio";
+import { visibleProjects } from "../../data/portfolio";
 
 const base = import.meta.env.BASE_URL;
 const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
@@ -18,9 +18,8 @@ const categories = ["All", ...new Set(visibleProjects.map((project) => project.c
       <p class="eyebrow">Projects</p>
       <h1>The difficult part of each system, explained clearly.</h1>
       <p class="lead">
-        This is not a wall of technology badges. Each project is organized around the problem,
-        major engineering feat, verified implementation evidence and the next decision that would
-        make it stronger.
+        Each project is organized around the business or operational problem, the major engineering
+        feat, the implemented architecture and the decisions that would strengthen it further.
       </p>
     </div>
   </header>
@@ -64,10 +63,10 @@ const categories = ["All", ...new Set(visibleProjects.map((project) => project.c
   </section>
 
   <Callout
-    title="Looking for a particular capability?"
-    copy={`The work spans ${identity.positioning.toLowerCase()} Tell me what needs to connect, automate or scale.`}
+    title="Looking for experience that matches your project?"
+    copy="Tell me what needs to connect, automate, stabilize or scale. I’ll relate it to the most relevant work and technical approach."
     href="/contact/"
-    action="Discuss the problem"
+    action="Contact Hamood"
   />
   <script>
     const buttons = [...document.querySelectorAll<HTMLButtonElement>("[data-filter]")];
