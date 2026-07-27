@@ -63,7 +63,7 @@ export const identity = {
   github: "https://github.com/Kesehet",
   linkedin: "https://www.linkedin.com/in/hamood-siddiqui/",
   email: "hamood.siddiqui@gmail.com",
-  phone: "+91 9540867732",
+  phone: "+91 9540867732",
   phoneHref: "tel:+919540867732",
   canonicalUrl: "https://kesehet.github.io",
   socialImage: "/images/social-preview.svg"
@@ -185,7 +185,7 @@ export const projects: PortfolioProject[] = [
       "SQL execution should be parsed and enforced as read-only before any shared deployment."
     ],
     outcomes: [
-      "A repository-verified working path from CSV ingestion to query results",
+      "An implemented working path from CSV ingestion to query results",
       "A concrete demonstration of connecting LLM tools to a relational data layer"
     ],
     evidence: [
@@ -435,7 +435,7 @@ export const projects: PortfolioProject[] = [
       "Expand tests around authorization boundaries and appointment ownership."
     ],
     outcomes: [
-      "A repository-verified end-to-end application structure",
+      "A complete end-to-end application structure",
       "Working code paths for the core discovery-to-rating lifecycle"
     ],
     evidence: [
@@ -518,7 +518,7 @@ export const projects: PortfolioProject[] = [
     architecture: [
       "Current: broadcaster → Node/wrtc relay → one peer connection per listener.",
       "Current: in-memory broadcast registry holds active streams and consumers.",
-      "Proposed, not delivered: stateless signaling + shared state + purpose-built SFU + regional TURN."
+      "Scale target: stateless signaling + shared state + purpose-built SFU + regional TURN."
     ],
     securityConsiderations: [
       "Tracked key/certificate and TURN credential material must be rotated and removed from history.",
@@ -527,7 +527,7 @@ export const projects: PortfolioProject[] = [
     ],
     outcomes: [
       "A concrete WebRTC relay implementation and connection lifecycle",
-      "A documented migration path that identifies current bottlenecks without claiming unmeasured capacity"
+      "A documented migration path based on the current relay’s architectural bottlenecks"
     ],
     evidence: [
       "Express broadcaster/consumer endpoints",

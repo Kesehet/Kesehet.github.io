@@ -47,17 +47,26 @@ const destinations = [
 >
   <section class="hero">
     <div class="shell hero-grid">
-      <div>
+      <div class="hero-copy">
         <p class="eyebrow">{identity.title}</p>
         <h1>Backend systems, AI workflows, and practical <em>full-stack products.</em></h1>
-      </div>
-      <div class="hero-aside">
-        <p>{identity.intro}</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href={withBase("/projects/")}>View selected work</a>
-          <a class="button button-secondary" href={withBase("/contact/")}>Contact me</a>
+        <div class="hero-aside">
+          <p>{identity.intro}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href={withBase("/projects/")}>View selected work</a>
+            <a class="button button-secondary" href={withBase("/contact/")}>Contact me</a>
+          </div>
         </div>
       </div>
+      <figure class="hero-portrait">
+        <img
+          src={withBase("/images/hamood-siddiqui-portrait.webp")}
+          alt="Hamood Siddiqui wearing a light grey suit"
+          width="960"
+          height="1440"
+          fetchpriority="high"
+        />
+      </figure>
     </div>
     <div class="shell hero-note" role="list" aria-label="Primary areas of work">
       <div role="listitem"><strong>Backend systems</strong><span>APIs, services and data workflows</span></div>
@@ -83,7 +92,7 @@ const destinations = [
   <section class="section">
     <div class="shell">
       <SectionIntro
-        eyebrow="Explore the portfolio"
+        eyebrow="Explore my work"
         title="Experience, capabilities and projects—organized for a focused review."
         copy="Explore the area most relevant to your needs, from detailed engineering case studies to the responsibilities and technologies behind the work."
       />
