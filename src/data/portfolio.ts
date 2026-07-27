@@ -778,6 +778,557 @@ export const projects: PortfolioProject[] = [
     visibility: "public",
     verificationStatus: "Implementation reviewed",
     todoNotes: ["Confirm event, team, role and asset licenses."]
+  },
+  {
+    slug: "storeai",
+    title: "StoreAI",
+    eyebrow: "Tool-calling product data assistant",
+    valueProposition:
+      "Connects natural-language requests to inspectable product-catalog operations through a focused AI interface.",
+    conciseDescription:
+      "A Flask and Ollama prototype that exposes product search and management functions as model-callable tools and returns the executed operations to a browser interface.",
+    detailedCaseStudy:
+      "StoreAI explores how a model can operate on business data without hiding the underlying action. The application defines explicit tools for listing, searching, reading, adding, updating and deleting products. Ollama selects a tool, Python executes the corresponding catalog request, and the interface displays the function name, arguments and output rather than presenting an unsupported answer as fact.",
+    category: "AI & data",
+    statusLabel: "Working tool-calling prototype",
+    technologies: ["Python", "Flask", "Ollama", "JavaScript", "REST APIs"],
+    businessProblem:
+      "Product and operational data is useful to small teams, but finding or changing a record often requires knowing the underlying system and its query conventions.",
+    users: "Small-business operators and teams working with product-catalog data.",
+    majorFeat:
+      "Connected model-selected tool calls to explicit product operations while keeping the invoked function, arguments and returned records inspectable.",
+    solution:
+      "A Flask endpoint accepts a natural-language request and passes it to Ollama with typed product tools. The selected Python function calls the catalog API, appends the result to conversation context and returns the operation details to a lightweight chat interface.",
+    role:
+      "Built the Flask service, Ollama tool-calling loop, product-operation adapters, context handling and browser interface.",
+    majorFeatures: [
+      "Natural-language product requests",
+      "Typed tools for search, listing and record operations",
+      "Pagination and field selection for catalog search",
+      "Conversation context controls",
+      "Browser display of executed tool outputs"
+    ],
+    technicalChallenges: [
+      "Mapping probabilistic model decisions onto explicit callable operations",
+      "Preserving enough context for follow-up questions without hiding the data source",
+      "Handling read and write tools through one consistent schema"
+    ],
+    architecture: [
+      "The browser sends a request to a Flask endpoint.",
+      "Ollama receives conversation context and product tool definitions.",
+      "Python dispatches approved tool names to REST-backed catalog functions.",
+      "Function arguments and outputs return to the interface for inspection."
+    ],
+    securityConsiderations: [
+      "Write and delete operations need authentication, authorization and an explicit confirmation boundary.",
+      "CORS should be restricted before deployment.",
+      "Persisted conversation context must exclude secrets and follow a retention policy."
+    ],
+    outcomes: [
+      "A working natural-language-to-tool execution path",
+      "Inspectable product search and management responses rather than opaque generated claims"
+    ],
+    evidence: [
+      "Flask request and context endpoints",
+      "Ollama tool definitions and dispatch logic",
+      "Product search, pagination, selection and mutation adapters",
+      "Repository browser interface for submitting and displaying operations"
+    ],
+    lessons: [
+      "AI-assisted business tools are more trustworthy when every operation maps to a named function.",
+      "Read and write capabilities need different approval and authorization boundaries."
+    ],
+    nextSteps: [
+      "Add user authentication and per-operation permissions",
+      "Require confirmation for mutations and destructive actions",
+      "Add automated tests for tool dispatch and catalog failures"
+    ],
+    links: [
+      {
+        label: "View source on GitHub",
+        href: "https://github.com/Kesehet/storeAi",
+        public: true
+      }
+    ],
+    media: [
+      {
+        src: "/images/projects/screenshots/storeai-repository-ui.png",
+        alt: "Actual StoreAI repository interface showing the SQL Chat Assistant input",
+        kind: "screenshot",
+        caption:
+          "Actual capture of the browser interface committed in the StoreAI repository."
+      }
+    ],
+    featured: true,
+    secondary: false,
+    visibility: "public",
+    verificationStatus: "Implementation verified",
+    todoNotes: []
+  },
+  {
+    slug: "supportpromax-voice-pipeline",
+    title: "SupportProMax Voice Pipeline",
+    eyebrow: "Speech capture, transcription and synthesis",
+    valueProposition:
+      "Turns a recorded support message into inspectable text and synthesized speech through a staged local workflow.",
+    conciseDescription:
+      "A Python prototype that records microphone input, transcribes a WAV file with ElevenLabs and converts the resulting text back into an MP3 response.",
+    detailedCaseStudy:
+      "The repository verifies the important media stages independently: device discovery and microphone capture, speech-to-text, an editable text boundary, text-to-speech and a separate speech-to-speech experiment. That separation matters because audio capture, remote inference and streamed output fail differently and need inspectable intermediate artifacts.",
+    category: "AI & data",
+    statusLabel: "Voice pipeline prototype",
+    technologies: ["Python", "ElevenLabs", "NumPy", "SoundDevice", "SciPy"],
+    businessProblem:
+      "Voice support workflows need a reliable way to capture a request, inspect what was understood and produce an audible response.",
+    users: "Support teams experimenting with voice-message and call-assistance workflows.",
+    majorFeat:
+      "Coordinated audio capture, speech recognition, an editable transcript boundary and streamed speech synthesis while preserving each intermediate artifact.",
+    solution:
+      "Python records mono audio to WAV, sends the file to speech-to-text, extracts the transcript defensively across SDK response shapes and streams synthesized speech into an MP3. A separate script tests direct speech-to-speech conversion.",
+    role:
+      "Implemented the recording utility and the ElevenLabs transcription, synthesis and speech-to-speech experiments.",
+    majorFeatures: [
+      "Input-device discovery and microphone recording",
+      "WAV normalization and persistence",
+      "Speech-to-text conversion",
+      "Editable transcript stage",
+      "Stream-safe MP3 synthesis and speech-to-speech experiment"
+    ],
+    technicalChallenges: [
+      "Handling audio devices and capture failures clearly",
+      "Normalizing different SDK transcription response shapes",
+      "Writing either byte or streamed synthesis responses safely"
+    ],
+    architecture: [
+      "SoundDevice captures mono audio and SciPy writes a WAV artifact.",
+      "ElevenLabs speech-to-text returns a transcript for inspection or editing.",
+      "The transcript passes to text-to-speech and streams into an MP3 file.",
+      "A separate path converts an input voice recording directly to another voice."
+    ],
+    securityConsiderations: [
+      "API keys belong only in ignored environment configuration.",
+      "Recorded speech and transcripts need consent, retention and deletion rules.",
+      "A deployed support flow needs authentication and limits on file type, size and duration."
+    ],
+    outcomes: [
+      "An implemented capture-to-transcript-to-speech path",
+      "Saved input and output artifacts make each stage independently reviewable"
+    ],
+    evidence: [
+      "Microphone capture and WAV-writing utility",
+      "Speech-to-text followed by streamed text-to-speech",
+      "Separate speech-to-speech conversion script",
+      "Repository audio artifacts from the experiments"
+    ],
+    lessons: [
+      "Intermediate transcripts are essential for debugging and human review.",
+      "A voice assistant is more reliable when media stages remain independently testable."
+    ],
+    nextSteps: [
+      "Add the context-aware support response stage",
+      "Replace sample artifacts with automated fixture-based tests",
+      "Add a consent-aware interface and audio retention controls"
+    ],
+    links: [
+      {
+        label: "View source on GitHub",
+        href: "https://github.com/Kesehet/supportpromax",
+        public: true
+      }
+    ],
+    media: [],
+    featured: true,
+    secondary: false,
+    visibility: "public",
+    verificationStatus: "Implementation verified",
+    todoNotes: []
+  },
+  {
+    slug: "social-content-generation-pipeline",
+    title: "Social Content Generation Pipeline",
+    eyebrow: "Reviewable multi-stage media automation",
+    valueProposition:
+      "Moves content ideas through AI planning, asset generation, human review and webhook delivery without collapsing the workflow into one model call.",
+    conciseDescription:
+      "A Python, PHP and MariaDB system combining Gemini orchestration, reusable image and video templates, persisted pipeline state, a review dashboard and Make webhook delivery.",
+    detailedCaseStudy:
+      "The project treats content generation as an operational pipeline. Ideas, runs, outputs and template requests are persisted separately. Gemini produces structured plans, rendering helpers create image and video assets with metadata, a PHP dashboard exposes drafts for review, and approved payloads can move through a Make webhook. The repository history shows the workflow evolving through independently testable services rather than a single generation script.",
+    category: "Automation",
+    statusLabel: "Multi-stage content workflow",
+    technologies: ["Python", "PHP", "MariaDB", "Gemini", "Pillow", "Selenium", "Make"],
+    businessProblem:
+      "Media teams repeatedly turn ideas and source material into multiple social formats, then track assets, review drafts and transfer approved content manually.",
+    users: "Research, media and marketing teams producing repeatable social content.",
+    majorFeat:
+      "Separated idea intake, model planning, persistent run state, template rendering, review and webhook delivery into inspectable stages with reusable media helpers.",
+    solution:
+      "A Python generator uses structured Gemini calls and template metadata to produce assets and sidecars. SQLAlchemy persistence records ideas, runs and outputs. A PHP dashboard reads the same operational data, previews drafts and builds Make webhook payloads for downstream delivery.",
+    role:
+      "Designed and developed the generator orchestration, persistence model, reusable media tooling, review dashboard and webhook-driven delivery workflow.",
+    majorFeatures: [
+      "Persisted ideas, pipeline runs, outputs and template requests",
+      "Gemini structured planning and content-type guidance",
+      "Reusable image, carousel and video template helpers",
+      "Asset metadata and lineage",
+      "PHP review dashboard and Make webhook previews"
+    ],
+    technicalChallenges: [
+      "Normalizing model responses into serializable pipeline records",
+      "Keeping generated assets traceable to prompts, templates and source ideas",
+      "Allowing human review and delivery retries without regenerating the entire workflow"
+    ],
+    architecture: [
+      "MariaDB stores content ideas, pipeline runs, outputs, templates and social drafts.",
+      "Python orchestration invokes Gemini functions and persists normalized results.",
+      "Rendering helpers create media assets and metadata sidecars.",
+      "A PHP dashboard reviews drafts and dispatches approved payloads through Make webhooks."
+    ],
+    securityConsiderations: [
+      "Model, database and webhook credentials must remain in protected environment configuration.",
+      "Remote source extraction needs allowlists, timeouts and content-size limits.",
+      "Publishing actions require authenticated approval and an auditable delivery record."
+    ],
+    outcomes: [
+      "A reusable generator and dashboard workflow spanning planning, rendering and review",
+      "Persistent pipeline records make generation and delivery states inspectable"
+    ],
+    evidence: [
+      "Python generator package and Gemini pipeline orchestration",
+      "MariaDB repositories for ideas, runs, outputs and social posts",
+      "Reusable image, video and carousel template tooling",
+      "PHP dashboard services and Make webhook client"
+    ],
+    lessons: [
+      "Creative automation needs state and review boundaries as much as it needs model prompts.",
+      "Reusable templates make visual output more dependable than unconstrained generation."
+    ],
+    nextSteps: [
+      "Add end-to-end tests around failed rendering and webhook retries",
+      "Formalize role-based review and publishing permissions",
+      "Document production storage, queue and cleanup policies"
+    ],
+    links: [],
+    media: [],
+    featured: true,
+    secondary: false,
+    visibility: "withhold-link",
+    verificationStatus: "Implementation reviewed",
+    todoNotes: ["Repository is private; publish only approved screenshots or a public demonstration."]
+  },
+  {
+    slug: "the-smart-project",
+    title: "The Smart Project",
+    eyebrow: "Managed IoT provisioning and device operations",
+    valueProposition:
+      "Connects factory flashing, customer onboarding, device ownership, live status and signed code updates across one managed device lifecycle.",
+    conciseDescription:
+      "An IoT platform with a PHP control plane, Python build and factory workers, a MicroPython ESP32 runtime, device onboarding, telemetry, logs and signed OTA updates.",
+    detailedCaseStudy:
+      "The difficult part is the lifecycle between manufacturing and normal operation. A factory worker claims queued jobs, flashes firmware and installs identity last. A customer then provisions Wi-Fi through a device-hosted access point. Once online, the runtime registers, claims ownership, reports heartbeat and logs, polls manifests and applies signed code-only OTA bundles. The repository includes migrations, runtime tests and smoke workflows around those boundaries.",
+    category: "Full-stack",
+    statusLabel: "Implemented IoT device platform",
+    technologies: ["PHP", "Python", "MicroPython", "MariaDB", "ESP32", "HMAC", "SHA-256"],
+    businessProblem:
+      "Connected-device customers need hardware to move safely from factory flashing to ownership, network onboarding, monitoring and controlled updates.",
+    users: "Factory operators, device-platform administrators and customers managing connected hardware.",
+    majorFeat:
+      "Connected secure factory provisioning, customer Wi-Fi onboarding, device claim, heartbeat and logs, customer code execution and signed OTA into one device lifecycle.",
+    solution:
+      "The PHP control plane manages users, devices, releases and factory jobs. Python workers validate code and flash USB-connected hardware. The MicroPython runtime handles onboarding, registration, heartbeats, logs, manifest polling and HMAC-verified customer-code updates.",
+    role:
+      "Designed and implemented the control-plane, build-worker, factory-client and device-runtime boundaries, including onboarding and update verification.",
+    majorFeatures: [
+      "Queued factory flashing and verification",
+      "Device-hosted Wi-Fi onboarding",
+      "Customer device claiming and fleet views",
+      "Heartbeat, signal, status and error logging",
+      "Signed code-only OTA updates",
+      "Hardware profiles and GPIO aliases"
+    ],
+    technicalChallenges: [
+      "Preserving device identity across factory, onboarding and ownership transitions",
+      "Recovering safely when connectivity or an update fails",
+      "Coordinating PHP services, Python workers and a constrained MicroPython runtime"
+    ],
+    architecture: [
+      "A PHP and MariaDB control plane stores devices, releases, users and factory jobs.",
+      "A Python build server validates customer code and emits artifacts.",
+      "A USB factory client flashes MicroPython, runtime files and device identity.",
+      "The ESP32 runtime onboards Wi-Fi, claims ownership, reports state and verifies OTA bundles."
+    ],
+    securityConsiderations: [
+      "Factory and OTA secrets require rotation, scoped access and protected storage.",
+      "Device claims need authenticated ownership rules and replay resistance.",
+      "Onboarding access points and pending Wi-Fi credentials require explicit timeout and cleanup behavior."
+    ],
+    outcomes: [
+      "An implemented factory-to-customer device lifecycle",
+      "Tested runtime, onboarding, build and backend paths",
+      "Operational views for devices, releases, logs and deployments"
+    ],
+    evidence: [
+      "PHP backend routes, migrations and operator pages",
+      "Python build and factory workers",
+      "MicroPython onboarding, runtime and OTA clients",
+      "Automated tests plus backend and web smoke scripts"
+    ],
+    lessons: [
+      "IoT reliability depends on lifecycle boundaries, not only sensor or relay code.",
+      "Identity and update verification must be designed before devices leave the factory."
+    ],
+    nextSteps: [
+      "Harden production secret rotation and device-key provisioning",
+      "Add fault-injection tests for interrupted flashing, onboarding and OTA",
+      "Instrument fleet-level reliability and update rollout metrics"
+    ],
+    links: [],
+    media: [],
+    featured: true,
+    secondary: false,
+    visibility: "withhold-link",
+    verificationStatus: "Implementation verified",
+    todoNotes: ["Repository is private; publish approved device and dashboard captures when available."]
+  },
+  {
+    slug: "ai-desktop-agent",
+    title: "AI Desktop Agent",
+    eyebrow: "Local-first automation with approval gates",
+    valueProposition:
+      "Lets a local model plan browser and desktop actions while keeping dangerous operations behind explicit human approval.",
+    conciseDescription:
+      "A Python and Flask desktop-automation agent using Ollama, Selenium, PyAutoGUI, session scratchpads, action logs and safety gates for high-impact tools.",
+    detailedCaseStudy:
+      "The central engineering problem is not giving a model more tools; it is deciding which tools may run automatically. The agent observes visible window state, asks a local model for the next action and separates routine navigation from terminal commands, submissions, downloads, purchases and destructive actions. Each session retains an action trace and scratchpad while approval cards keep high-impact decisions with the user.",
+    category: "Desktop",
+    statusLabel: "Local-first agent prototype",
+    technologies: ["Python", "Flask", "Ollama", "Selenium", "PyAutoGUI", "PowerShell"],
+    businessProblem:
+      "Desktop automation can remove repetitive work, but model-driven actions need visible state, constrained tools and human control over consequential operations.",
+    users: "Technical users experimenting with local-first browser and desktop automation.",
+    majorFeat:
+      "Separated automatically executable navigation from dangerous desktop and terminal actions through a typed tool layer, approval gate and per-session audit trail.",
+    solution:
+      "A Flask interface creates agent sessions. The controller combines visible-window state and scratchpad context, asks Ollama for a proposed tool action and routes it through safety rules. Safe navigation can continue automatically; dangerous operations generate an approval card before execution.",
+    role:
+      "Built the agent loop, local-model integration, browser and desktop tools, safety classification, session state and web interface.",
+    majorFeatures: [
+      "Local Ollama planning loop",
+      "Selenium browser actions and public web reading",
+      "PyAutoGUI keyboard and mouse automation",
+      "Approval cards for dangerous actions",
+      "Session scratchpad, logs and action history",
+      "Unit tests for configuration, sessions, safety and tools"
+    ],
+    technicalChallenges: [
+      "Giving the model enough observable state without silently capturing sensitive content",
+      "Classifying actions by consequence instead of treating every tool equally",
+      "Keeping a multi-step agent stoppable, inspectable and bounded"
+    ],
+    architecture: [
+      "The Flask UI creates sessions and displays proposals, approvals and activity.",
+      "An agent controller builds prompts from visible state and scratchpad memory.",
+      "Typed browser, web, terminal and desktop tools execute through a safety layer.",
+      "Session storage and logs preserve progress and decisions locally."
+    ],
+    securityConsiderations: [
+      "Dangerous actions must remain approval-gated and narrowly parameterized.",
+      "Scratchpads and logs must exclude passwords, tokens and private content.",
+      "Terminal commands and browser submissions require allowlists, timeouts and visible targets."
+    ],
+    outcomes: [
+      "A working local-first action loop with explicit approval boundaries",
+      "Inspectable session traces and tests across the safety and tool layers"
+    ],
+    evidence: [
+      "Agent controller, prompt builder and Ollama client",
+      "Browser, desktop, terminal and web-reader tools",
+      "Safety rules and approval workflow",
+      "Flask interface plus configuration and behavior tests"
+    ],
+    lessons: [
+      "Agent safety is primarily a product and tool-boundary problem.",
+      "Local models still need strict controls because the effects occur outside the model."
+    ],
+    nextSteps: [
+      "Add policy tests for more ambiguous and compound actions",
+      "Introduce replayable dry-run plans before multi-step execution",
+      "Package the local runtime and document supported desktop environments"
+    ],
+    links: [],
+    media: [],
+    featured: false,
+    secondary: true,
+    visibility: "withhold-link",
+    verificationStatus: "Implementation reviewed",
+    todoNotes: ["Repository is private; add an approved product walkthrough before publishing code."]
+  },
+  {
+    slug: "rook-and-roll",
+    title: "Rook & Roll",
+    eyebrow: "Turn-based board and behavior systems",
+    valueProposition:
+      "Combines dice-orientation movement, turn phases, traps and configurable chess-inspired enemy behavior in a web-playable prototype.",
+    conciseDescription:
+      "A vanilla JavaScript board-game prototype with dice rotation state, a deterministic turn engine, trap timing and a rule-driven enemy behavior editor.",
+    detailedCaseStudy:
+      "Rook & Roll has progressed beyond its original landing-page bootstrap. The current repository implements a board state, dice orientation, turn phases, traps and a behavior engine. Enemies select the highest-priority matching rule from conditions such as line-of-sight, range, turn cadence and state, then execute movement, telegraph, attack or logging actions. The editor makes those systems visible rather than hard-coding one enemy sequence.",
+    category: "Game development",
+    statusLabel: "Web-playable systems prototype",
+    technologies: ["JavaScript", "HTML", "CSS", "GitHub Pages"],
+    businessProblem:
+      "A compact tactical game needs enemies and hazards that remain understandable and configurable as new board rules are introduced.",
+    users: "Players and designers experimenting with a turn-based dice and chess-inspired combat system.",
+    majorFeat:
+      "Built a data-driven behavior system that combines prioritized conditions, chess-derived movement, telegraphed actions, traps and deterministic turn phases.",
+    solution:
+      "JavaScript modules separate state, input, rendering, turn execution and enemy behavior. The player’s die rotates with grid movement. Enemies evaluate editable rules, traps trigger on turn cadence, and the UI exposes board configuration and an event log.",
+    role:
+      "Developed the modular board prototype, dice state, turn engine, traps, configurable enemy rules and GitHub Pages delivery.",
+    majorFeatures: [
+      "Grid movement with six-sided dice orientation",
+      "Turn phases and event log",
+      "Cadence-driven traps and effects",
+      "Rook, bishop, queen and knight movement rules",
+      "Priority-based behavior conditions and actions",
+      "In-browser enemy and board configuration"
+    ],
+    technicalChallenges: [
+      "Maintaining correct die faces across four movement directions",
+      "Keeping enemy decisions deterministic while allowing configurable rules",
+      "Separating state mutation from input and rendering"
+    ],
+    architecture: [
+      "State modules own the board, player, dice, traps and enemies.",
+      "The turn engine advances traps and enemies through explicit phases.",
+      "A behavior engine matches prioritized conditions and executes bounded actions.",
+      "Rendering and configuration modules expose the current state in the browser."
+    ],
+    securityConsiderations: [
+      "Imported configuration should be schema-validated before use.",
+      "Untrusted text rendered in the editor and event log must remain escaped.",
+      "Repository artwork and audio should be licensed before a fuller release."
+    ],
+    outcomes: [
+      "A deployed, web-playable systems prototype",
+      "Reusable rule structures for enemy behavior and trap cadence"
+    ],
+    evidence: [
+      "Dice rotation and board-state modules",
+      "Turn, trap and event-log implementation",
+      "Condition/action behavior engine",
+      "Interactive configuration editor and GitHub Pages workflow"
+    ],
+    lessons: [
+      "Data-driven rules make tactical behavior easier to inspect and extend.",
+      "Explicit turn phases prevent hazards and enemies from mutating state unpredictably."
+    ],
+    nextSteps: [
+      "Add authored levels and a progression loop",
+      "Add automated tests for dice orientation and behavior priority",
+      "Polish player feedback, onboarding and game-over states"
+    ],
+    links: [
+      {
+        label: "Play the prototype",
+        href: "https://kesehet.github.io/rook-and-roll/",
+        public: true
+      },
+      {
+        label: "View source on GitHub",
+        href: "https://github.com/Kesehet/rook-and-roll",
+        public: true
+      }
+    ],
+    media: [
+      {
+        src: "/images/projects/screenshots/rook-and-roll-prototype.png",
+        alt: "Actual Rook and Roll browser prototype showing the dice player on a grid",
+        kind: "screenshot",
+        caption:
+          "Actual capture of the deployed repository build showing board state, dice orientation and the turn interface."
+      }
+    ],
+    featured: false,
+    secondary: true,
+    visibility: "public",
+    verificationStatus: "Implementation verified",
+    todoNotes: []
+  },
+  {
+    slug: "custom-file-manager",
+    title: "Custom File Manager",
+    eyebrow: "Binary file storage service",
+    valueProposition:
+      "Provides a compact upload-and-retrieve workflow backed by FastAPI and SQLite binary storage.",
+    conciseDescription:
+      "An early FastAPI service that accepts uploaded files, stores their binary content in SQLite and returns an identifier that can retrieve the file later.",
+    detailedCaseStudy:
+      "The project demonstrates the complete path between a multipart browser upload, temporary filesystem handling, SQLite binary persistence and an identifier-based download response. Its value is the connected workflow rather than production readiness: the repository also documents the missing authentication boundary explicitly.",
+    category: "Full-stack",
+    statusLabel: "Early file-service prototype",
+    technologies: ["Python", "FastAPI", "SQLite", "Uvicorn", "HTML"],
+    businessProblem:
+      "Small services sometimes need a simple way to upload a file, retain it with a stable identifier and retrieve it later.",
+    users: "Developers prototyping file-backed workflows and internal utilities.",
+    majorFeat:
+      "Connected multipart upload, temporary file handling, SQLite BLOB persistence and identifier-based download into one working service path.",
+    solution:
+      "A browser form posts a file to FastAPI. Python writes the temporary file, stores its binary data and path in SQLite, returns the inserted identifier and reconstructs the file for a later download response.",
+    role:
+      "Built the FastAPI endpoints, SQLite BLOB persistence helpers and minimal upload interface.",
+    majorFeatures: [
+      "Multipart file upload",
+      "SQLite BLOB persistence",
+      "Generated record identifier",
+      "Identifier-based download",
+      "Minimal browser upload form"
+    ],
+    technicalChallenges: [
+      "Moving binary data safely between multipart input, filesystem and SQLite",
+      "Reconstructing the original file for a download response",
+      "Maintaining a stable record-to-file mapping"
+    ],
+    architecture: [
+      "An HTML form submits multipart data to FastAPI.",
+      "The service writes a temporary copy and stores bytes plus file metadata in SQLite.",
+      "A download endpoint loads the BLOB, reconstructs the file and returns FileResponse."
+    ],
+    securityConsiderations: [
+      "The repository has no authentication and must not be deployed publicly in its current form.",
+      "File names, content types, sizes and storage paths need strict validation.",
+      "Malware scanning, quotas and retention cleanup are required for shared use."
+    ],
+    outcomes: [
+      "A working upload, persistence and download path",
+      "A concise demonstration of binary storage through a web API"
+    ],
+    evidence: [
+      "FastAPI upload and download endpoints",
+      "SQLite insert and BLOB reconstruction helpers",
+      "Repository schema and browser form"
+    ],
+    lessons: [
+      "File storage prototypes become security-sensitive as soon as they accept untrusted input.",
+      "Stable metadata and cleanup policies matter as much as the raw binary transfer."
+    ],
+    nextSteps: [
+      "Add authentication and per-user ownership",
+      "Move file bytes to managed object storage while retaining metadata in the database",
+      "Add validation, malware scanning, quotas and automated cleanup"
+    ],
+    links: [
+      {
+        label: "View source on GitHub",
+        href: "https://github.com/Kesehet/CustomFileManager",
+        public: true
+      }
+    ],
+    media: [],
+    featured: false,
+    secondary: true,
+    visibility: "public",
+    verificationStatus: "Implementation verified",
+    todoNotes: []
   }
 ];
 

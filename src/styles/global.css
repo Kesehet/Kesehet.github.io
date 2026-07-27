@@ -1341,6 +1341,16 @@ h3 {
   line-height: 0.8;
 }
 
+@media (min-width: 1100px) {
+  .all-projects {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .all-project-card h2 {
+    font-size: 1.75rem;
+  }
+}
+
 @media (max-width: 900px) {
   .nav-toggle {
     display: none;
