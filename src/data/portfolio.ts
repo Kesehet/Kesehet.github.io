@@ -59,7 +59,7 @@ export const identity = {
     "Python and Full-Stack Developer with nearly eight years of hands-on experience building backend systems, AI integrations, automation tools and practical web applications.",
   headline: "Backend, AI and full-stack systems built to solve real operational problems.",
   intro:
-    "Across nearly eight years of delivery, I have built Python APIs, automation workflows, AI-enabled applications and practical web platforms—connecting backend logic, interfaces and deployment decisions to real service needs.",
+    "Across nearly eight years of delivery, I have built Python APIs, automation workflows, AI-enabled applications and practical web platforms - connecting backend logic, interfaces and deployment decisions to real service needs.",
   github: "https://github.com/Kesehet",
   linkedin: "https://www.linkedin.com/in/hamood-siddiqui/",
   email: "hamood.siddiqui@gmail.com",
@@ -73,7 +73,7 @@ export const capabilities = [
   {
     title: "Backend systems",
     summary:
-      "APIs, data models and service boundaries designed around real workflows—not isolated endpoints.",
+      "APIs, data models and service boundaries designed around real workflows - not isolated endpoints.",
     evidence: "Flask, FastAPI, Spring Boot, Laravel, SQLite, MySQL"
   },
   {

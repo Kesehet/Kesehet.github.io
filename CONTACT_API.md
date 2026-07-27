@@ -35,7 +35,7 @@ Success:
 ```json
 {
   "ok": true,
-  "message": "Thanks—your enquiry was sent."
+  "message": "Thanks - your enquiry was sent."
 }
 ```
 
