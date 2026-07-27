@@ -61,6 +61,14 @@ import { capabilities, identity, resumeTodos } from "../data/portfolio";
           <ul>
             {resumeTodos.map((todo) => <li>{todo}</li>)}
           </ul>
+          <button
+            class="button button-secondary"
+            type="button"
+            disabled
+            title="The approved résumé PDF has not been supplied yet"
+          >
+            Download résumé · awaiting approval
+          </button>
         </div>
         <div style="margin-top: 1.5rem">
           <p class="eyebrow">Profiles</p>
