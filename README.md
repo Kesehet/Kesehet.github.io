@@ -1,4 +1,4 @@
-# Hamood Siddiqui — professional portfolio
+# Hamood Siddiqui - professional portfolio
 
 Static portfolio for **Hamood Siddiqui**, Python & Full-Stack Developer.
 
