@@ -139,7 +139,7 @@ try {
     $honeypot = normalize_text($_POST['website'] ?? '');
     if ($honeypot !== '') {
         // Return a generic success so automated spam does not learn the trap.
-        respond(200, 'Thanks-your enquiry was sent.', true);
+        respond(200, 'Thanks—your enquiry was sent.', true);
     }
 
     $name = normalize_text($_POST['name'] ?? '');
@@ -196,7 +196,7 @@ try {
         "Message:\n{$message}\n";
     $mail->send();
 
-    respond(200, 'Thanks-your enquiry was sent.', true);
+    respond(200, 'Thanks—your enquiry was sent.', true);
 } catch (MailException $exception) {
     error_log('Contact mail delivery failed.');
     respond(502, 'The message could not be delivered right now.');

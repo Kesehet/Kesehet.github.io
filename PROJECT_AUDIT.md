@@ -37,7 +37,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 
 ## Repository findings
 
-### 1. AiSQL - `Kesehet/aisql`
+### 1. AiSQL — `Kesehet/aisql`
 
 - **Purpose:** Upload CSV data, create a local SQLite database, ask natural-language questions, generate/execute SQL, and render results/charts.
 - **Verified stack:** Python, Flask, Waitress, SQLite, pandas, Ollama, Google Generative AI integration, React/Create React App, PrimeReact, Chart.js-related frontend utilities.
@@ -49,7 +49,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Open CORS; arbitrary database names can affect filesystem paths; raw SQL execution lacks an enforced read-only boundary; detailed tracebacks can be returned; upload/request limits and authentication are absent; in-memory cache is unbounded. Do not expose as an open public demo.
 - **Suitability:** **Featured prototype**, after hardening or with repository link withheld. Strong evidence for backend/AI integration, but outcomes and production usage are unverified.
 
-### 2. kesehet-stt - `Kesehet/kesehet-stt`
+### 2. kesehet-stt — `Kesehet/kesehet-stt`
 
 - **Purpose:** Hotkey-controlled desktop speech recording, local Whisper transcription, and Discord webhook delivery.
 - **Verified stack:** Python, `faster-whisper`, CTranslate2/ONNX Runtime, NumPy, SoundDevice/SoundFile, pynput, Requests, dotenv.
@@ -61,7 +61,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security/privacy:** Webhook is environment-configured and ignored correctly. Transcripts leave the machine when sent to Discord. The recorded WAV is overwritten but not automatically removed.
 - **Suitability:** **Featured utility.** Present as local automation, not a hosted speech platform. Add README, consent/privacy notes, tests, and remove the tracked recording.
 
-### 3. Media Pitch website - `Kesehet/mediapitch`
+### 3. Media Pitch website — `Kesehet/mediapitch`
 
 - **Purpose:** Public service-company website plus a newer local/private book profit tracker and a chatbot integration.
 - **Verified stack:** PHP, HTML, CSS, JavaScript, JSON content, SQLite for the analytics tool, Google Analytics; chatbot PHP files are present.
@@ -73,7 +73,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** **Critical:** tracked third-party messaging credentials and personal data were found. The analytics app has no login and places SQLite under the web tree. Shelling out to cURL and collecting visitor information increase risk. Do not promote or deploy from this state.
 - **Suitability:** **Featured workstream only after cleanup and role/asset approval.** No repository link until credential rotation and history remediation are confirmed.
 
-### 4. Media Pitch redesign - `Kesehet/mediapitch-redesign`
+### 4. Media Pitch redesign — `Kesehet/mediapitch-redesign`
 
 - **Purpose:** Modern redesign of the Media Pitch marketing site.
 - **Verified stack:** Next.js 15, React 19, Tailwind CSS, Radix UI, Framer Motion/Motion, Lucide/React Icons, Swiper.
@@ -85,7 +85,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security/assets:** Secret references are appropriately stored as Actions secrets, but server details and client imagery should not be reused. Dependency and action versions need maintenance.
 - **Suitability:** **Supporting evidence only**, not an authored case study until contribution is confirmed.
 
-### 5. LLM Media Pitch - `Kesehet/llm-mediapitch`
+### 5. LLM Media Pitch — `Kesehet/llm-mediapitch`
 
 - **Purpose:** Laravel service coordinating LLM/Whisper tasks and machine instances.
 - **Verified stack:** PHP 8, Laravel 9, Sanctum, Socialite, Eloquent migrations, Vite, Axios.
@@ -97,7 +97,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Several operational API routes appear outside the commented Sanctum group; test/cleanup/all-task routes need authentication and authorization review. Tunnel/instance services require a secrets review.
 - **Suitability:** Combine into the **Media Pitch workstream** after access-control review. Do not imply production usage.
 
-### 6. BookMyConsultation API - `Kesehet/BookMyConsultation`
+### 6. BookMyConsultation API — `Kesehet/BookMyConsultation`
 
 - **Purpose:** Backend for doctor discovery, authentication, appointments, and ratings.
 - **Verified stack:** Java 8, Spring Boot 2.5, Spring Web, Spring Data JPA, MySQL, JWT, Swagger/Springfox, Maven, Actuator.
@@ -109,7 +109,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** A database password value is tracked in application properties; rotate if ever reused and replace with environment configuration. Spring Security is commented out while custom JWT code is used. Dependencies are dated.
 - **Suitability:** **Featured educational full-stack case study**, paired with the UI. Good architecture evidence; no business outcomes should be claimed.
 
-### 7. BookMyConsultation UI - `Kesehet/BookMyConsultationUI`
+### 7. BookMyConsultation UI — `Kesehet/BookMyConsultationUI`
 
 - **Purpose:** React client for the consultation API.
 - **Verified stack:** React 17, Redux, Redux Thunk/Persist, React Router, Material UI, Axios, React Hook Form, date-fns.
@@ -121,7 +121,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Old Axios/React tooling requires dependency review. Confirm token storage/refresh/logout behavior before any live deployment.
 - **Suitability:** **Featured with the API** as one case study.
 
-### 8. Fill Masjid Azaan server - `Kesehet/fillmasjid-azaan-server`
+### 8. Fill Masjid Azaan server — `Kesehet/fillmasjid-azaan-server`
 
 - **Purpose:** Audio-only one-to-many WebRTC relay/signaling server.
 - **Verified stack:** Node.js, Express, `wrtc`, HTTPS, CORS, PM2 tooling, coturn configuration, Linux bootstrap shell script.
@@ -133,7 +133,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** **Critical:** certificate/private-key-style files and TURN credentials/config are tracked. Signaling endpoints have no visible authentication or rate limiting. Request limits and robust schema validation are absent. Some operational addresses are hard-coded.
 - **Suitability:** **Featured architecture case study only after secrets remediation.** Clearly distinguish current implementation from proposed scaling work; never present planning capacity estimates as measured outcomes.
 
-### 9. Masjids list - `Kesehet/masjids-list`
+### 9. Masjids list — `Kesehet/masjids-list`
 
 - **Purpose:** Use a Google Maps scraping tool to enumerate masjids from Indian postal-address queries.
 - **Verified stack:** Python, pandas, Botasaurus/Selenium-style scraping, Docker/Compose.
@@ -145,7 +145,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security/privacy/legal:** Tracked scraped output may contain contact/location data and should not be copied. Confirm Google Maps terms, data provenance, consent, and licensing. `local_storage.json`, profiles, caches, and logs require review.
 - **Suitability:** **Excluded from public portfolio for now.** It does not provide clean evidence of original implementation and carries data/licensing risk.
 
-### 10. AzaanNow - `Kesehet/AzaanNow`
+### 10. AzaanNow — `Kesehet/AzaanNow`
 
 - **Purpose:** Mobile prototype that requests device location and sorts a masjid dataset by distance.
 - **Verified stack:** React Native, Expo 40, Expo Location, Geolib.
@@ -157,7 +157,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security/privacy:** Uses precise location; a future release needs a privacy explanation and current permission APIs.
 - **Suitability:** **Experimental supporting project** within the Fill Masjid case study, not standalone featured work.
 
-### 11. CafeClock - `Kesehet/CafeClock`
+### 11. CafeClock — `Kesehet/CafeClock`
 
 - **Purpose:** Electron kiosk-mode shell with a gaming-café login mockup.
 - **Verified stack:** Electron 26, HTML/CSS/JavaScript.
@@ -169,7 +169,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** `nodeIntegration: true` is unnecessary and unsafe for untrusted content. Escape exits the app and developer tools open by default.
 - **Suitability:** **Featured only as a transparent prototype** if the intended problem and responsibility are confirmed. Do not describe it as a working café management system.
 
-### 12. Custom File Manager - `Kesehet/CustomFileManager`
+### 12. Custom File Manager — `Kesehet/CustomFileManager`
 
 - **Purpose:** FastAPI service for uploading blobs to SQLite and downloading them by numeric ID.
 - **Verified stack:** Python, FastAPI, Uvicorn, SQLite, HTML form.
@@ -181,7 +181,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Explicitly unauthenticated; original filenames can cause path traversal/overwrite; no type/size/quota scanning; public object IDs are enumerable; duplicate disk/database storage can exhaust resources; error handling is broad.
 - **Suitability:** **Experimental/security-learning project; do not promote or deploy** until redesigned.
 
-### 13. HNS Movie Party - `Kesehet/hns-movie-party`
+### 13. HNS Movie Party — `Kesehet/hns-movie-party`
 
 - **Purpose:** Synchronized HLS watch-party prototype with upload support.
 - **Verified stack:** Python, Flask, Flask-SocketIO, Video.js, HLS.js, Bootstrap.
@@ -193,13 +193,13 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Hard-coded Flask secret; wildcard Socket.IO origins; no auth or host authorization; unauthenticated upload; no aggregate size/quota control; development server is allowed in an unsafe mode.
 - **Suitability:** **Experimental/additional** after a security-focused README. No live demo in current state.
 
-### 14. 3Duverse demo platform - `Kesehet/3duverse-demo-platform`
+### 14. 3Duverse demo platform — `Kesehet/3duverse-demo-platform`
 
 - **Purpose/stack/features:** Not verifiable. The default branch contains only `.gitkeep`.
 - **Completeness/docs/tests/deployment/media/security:** Empty repository; nothing to install or assess.
 - **Suitability:** **Excluded.**
 
-### 15. Zombeez Game Jam - `Kesehet/Zombeez-Game-Jam`
+### 15. Zombeez Game Jam — `Kesehet/Zombeez-Game-Jam`
 
 - **Purpose:** GameMaker action/platform game-jam project.
 - **Verified stack:** GameMaker project (`.yyp`, `.yy`) and GML.
@@ -211,7 +211,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security/licensing:** Confirm ownership/licenses for all sprite art and spreadsheet content before reuse.
 - **Suitability:** **Secondary game-development project**, subject to role and asset-rights confirmation.
 
-### 16. TheGameEngine - `Kesehet/TheGameEngine`
+### 16. TheGameEngine — `Kesehet/TheGameEngine`
 
 - **Purpose:** Flask page embedding a basic Three.js rotating-cube playground.
 - **Verified stack:** Python/Flask, Three.js, HTML.
@@ -222,7 +222,7 @@ No secret values, customer records, or proprietary assets are reproduced here. A
 - **Security:** Flask debug mode is enabled in source. Committed binaries/dependencies create supply-chain and repository-hygiene concerns.
 - **Suitability:** **Excluded.** Title overstates the implementation.
 
-### 17. supportpromax - `Kesehet/supportpromax`
+### 17. supportpromax — `Kesehet/supportpromax`
 
 - **Purpose:** Experiments around microphone recording, ElevenLabs speech-to-speech, speech-to-text, and text-to-speech.
 - **Verified stack:** Python, SoundDevice, NumPy/SciPy, ElevenLabs SDK, dotenv.

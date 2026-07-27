@@ -80,7 +80,7 @@ Never invent:
 When information conflicts, add a visible TODO in the content-data file rather
 than guessing.
 
-PHASE 1 - REPOSITORY AUDIT
+PHASE 1 — REPOSITORY AUDIT
 
 Inspect these projects first:
 
@@ -124,7 +124,7 @@ Create PROJECT_AUDIT.md containing the findings.
 Do not expose secrets, environment variables, customer data, API keys, internal
 URLs or proprietary code.
 
-PHASE 2 - CONTENT MODEL
+PHASE 2 — CONTENT MODEL
 
 Create a structured data file such as:
 
@@ -165,7 +165,7 @@ Each project record should support:
 
 Do not display private repository links to visitors.
 
-PHASE 3 - WEBSITE STRUCTURE
+PHASE 3 — WEBSITE STRUCTURE
 
 Build these routes or sections:
 

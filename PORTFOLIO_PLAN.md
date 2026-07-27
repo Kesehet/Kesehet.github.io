@@ -16,12 +16,12 @@ Hero direction:
 
 ### Featured
 
-1. **AiSQL** - strongest current AI/backend/full-stack prototype; describe the CSV → SQLite → schema context → LLM/tool call → SQL/result flow. Status must remain “prototype,” and the repository link stays hidden until hardening.
-2. **Local Speech-to-Text Workflow** - compact, current Python automation with an easy-to-explain local transcription/Discord delivery pipeline.
-3. **Media Pitch Platform Work** - combine the PHP website, Laravel LLM/task service, and redesign evidence into one workstream. Keep contribution, dates, and public links as TODOs; do not reuse client assets.
-4. **BookMyConsultation** - combine the Spring Boot API and React UI into an educational full-stack case study.
-5. **Fill Masjid Ecosystem** - explain the React Native location prototype and WebRTC audio relay, clearly separating implemented code from the proposed SFU/Redis scaling plan. No repository link until credential/key cleanup.
-6. **CafeClock** - include as a small kiosk-shell prototype, explicitly naming what is not yet implemented.
+1. **AiSQL** — strongest current AI/backend/full-stack prototype; describe the CSV → SQLite → schema context → LLM/tool call → SQL/result flow. Status must remain “prototype,” and the repository link stays hidden until hardening.
+2. **Local Speech-to-Text Workflow** — compact, current Python automation with an easy-to-explain local transcription/Discord delivery pipeline.
+3. **Media Pitch Platform Work** — combine the PHP website, Laravel LLM/task service, and redesign evidence into one workstream. Keep contribution, dates, and public links as TODOs; do not reuse client assets.
+4. **BookMyConsultation** — combine the Spring Boot API and React UI into an educational full-stack case study.
+5. **Fill Masjid Ecosystem** — explain the React Native location prototype and WebRTC audio relay, clearly separating implemented code from the proposed SFU/Redis scaling plan. No repository link until credential/key cleanup.
+6. **CafeClock** — include as a small kiosk-shell prototype, explicitly naming what is not yet implemented.
 
 ### Secondary and additional
 
@@ -41,16 +41,16 @@ Hero direction:
 
 Static, multi-page routes:
 
-- `/` - home in the required section order.
-- `/projects/` - all visible projects with substantive summaries and filters that remain usable without JavaScript.
-- `/projects/[slug]/` - detailed case study pages generated from structured data.
-- `/about/` - working approach and verified positioning.
-- `/experience/` - verified project experience plus guarded résumé TODO state; no invented employment.
-- `/skills/` - capabilities grouped by outcomes and supported technologies.
-- `/resume/` - HTML résumé; PDF download disabled until supplied/confirmed.
-- `/contact/` - enhanced form with normal POST action, consent, honeypot, status UI, and privacy link.
-- `/privacy/` - concise contact-form privacy notice.
-- `/404.html` - custom static 404.
+- `/` — home in the required section order.
+- `/projects/` — all visible projects with substantive summaries and filters that remain usable without JavaScript.
+- `/projects/[slug]/` — detailed case study pages generated from structured data.
+- `/about/` — working approach and verified positioning.
+- `/experience/` — verified project experience plus guarded résumé TODO state; no invented employment.
+- `/skills/` — capabilities grouped by outcomes and supported technologies.
+- `/resume/` — HTML résumé; PDF download disabled until supplied/confirmed.
+- `/contact/` — enhanced form with normal POST action, consent, honeypot, status UI, and privacy link.
+- `/privacy/` — concise contact-form privacy notice.
+- `/404.html` — custom static 404.
 
 ## Content architecture
 
@@ -78,9 +78,9 @@ Use **Astro with static output**:
 
 Configuration:
 
-- `SITE_URL` - canonical origin, default placeholder `https://hamoodsiddiqui.com`.
-- `BASE_PATH` - optional GitHub Pages repository base, default `/`.
-- `PUBLIC_CONTACT_ENDPOINT` - public form endpoint; no credentials.
+- `SITE_URL` — canonical origin, default placeholder `https://hamoodsiddiqui.com`.
+- `BASE_PATH` — optional GitHub Pages repository base, default `/`.
+- `PUBLIC_CONTACT_ENDPOINT` — public form endpoint; no credentials.
 
 The contact form’s action is populated at build time. If the endpoint remains the example placeholder, the UI visibly disables sending rather than transmitting data to an unintended service.
 
@@ -88,7 +88,7 @@ The contact form’s action is populated at build time. If the endpoint remains 
 
 - Editorial engineering aesthetic: warm off-white/light and deep navy/dark surfaces, strong sans-serif typography, restrained teal accent, thin rules, code/data-inspired diagrams built in CSS.
 - Large readable type, max-width text measure, generous vertical rhythm.
-- Project cards contain problem, system, responsibility/status, and evidence-not only tags.
+- Project cards contain problem, system, responsibility/status, and evidence—not only tags.
 - Accessible light/dark modes with a simple persistent toggle.
 - Subtle entrance/hover transitions only; all motion removed under `prefers-reduced-motion`.
 - Mobile-first navigation; keyboard-visible focus; skip link; semantic landmarks.

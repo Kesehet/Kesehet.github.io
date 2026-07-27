@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 
 const fullTitle =
-  title === identity.name ? `${identity.name} - ${identity.title}` : `${title} - ${identity.name}`;
+  title === identity.name ? `${identity.name} — ${identity.title}` : `${title} — ${identity.name}`;
 const base = import.meta.env.BASE_URL;
 const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
 const canonical = new URL(withBase(path), Astro.site ?? identity.canonicalUrl);
