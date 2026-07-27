@@ -1,0 +1,9 @@
+{
+  "name": "hamood-siddiqui/portfolio-contact-example",
+  "description": "Server-side-only contact handler example",
+  "type": "project",
+  "require": {
+    "php": "^8.1",
+    "phpmailer/phpmailer": "^6.10"
+  }
+}
