@@ -55,15 +55,11 @@ import { capabilities, experienceContexts, identity } from "../data/portfolio";
           <p class="eyebrow">Service context</p>
           <div class="contact-options">
             {
-              experienceContexts.map((item) =>
-                item.href ? (
-                  <a href={item.href} target="_blank" rel="noopener">
-                    <span>{item.title}</span><span>↗</span>
-                  </a>
-                ) : (
-                  <span class="experience-context-label">{item.title}</span>
-                )
-              )
+              experienceContexts.map((item) => (
+                <a href={item.href} target="_blank" rel="noopener">
+                  <span>{item.title}</span><span>↗</span>
+                </a>
+              ))
             }
           </div>
         </div>

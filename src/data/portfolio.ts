@@ -122,7 +122,7 @@ export const experienceContexts = [
     title: "Media Pitch",
     copy:
       "Worked across public-facing web experiences, operational tooling and AI-assisted service workflows.",
-    href: ""
+    href: "https://mediapitch.in"
   },
   {
     title: "MarketGenics",
@@ -376,7 +376,13 @@ export const projects: PortfolioProject[] = [
       "Consolidate deployment practices and approved brand assets",
       "Add authentication and feature-specific automated tests"
     ],
-    links: [],
+    links: [
+      {
+        label: "Visit Media Pitch",
+        href: "https://mediapitch.in",
+        public: true
+      }
+    ],
     media: [],
     featured: true,
     secondary: false,

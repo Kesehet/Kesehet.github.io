@@ -34,17 +34,9 @@ import { experienceContexts, experienceNotes } from "../data/portfolio";
           experienceContexts.map((item, index) => (
             <article class="experience-card">
               <span class="eyebrow">{String(index + 1).padStart(2, "0")}</span>
-              <h3>
-                {
-                  item.href ? (
-                    <a href={item.href} target="_blank" rel="noopener">{item.title}</a>
-                  ) : (
-                    item.title
-                  )
-                }
-              </h3>
+              <h3><a href={item.href} target="_blank" rel="noopener">{item.title}</a></h3>
               <p>{item.copy}</p>
-              {item.href && <small>{new URL(item.href).hostname.replace(/^www\./, "")} ↗</small>}
+              <small>{new URL(item.href).hostname.replace(/^www\./, "")} ↗</small>
             </article>
           ))
         }
