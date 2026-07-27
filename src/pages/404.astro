@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The requested page could not be found."
+  path="/404.html"
+  noindex
+>
+  <section class="not-found shell">
+    <div>
+      <div class="not-found-code" aria-hidden="true">404</div>
+      <p class="eyebrow">Page not found</p>
+      <h1 style="font-size: clamp(2.5rem, 6vw, 5rem)">This route reached a dead end.</h1>
+      <p>The selected work is still available from the projects index.</p>
+      <a class="button button-primary" href={withBase("/projects/")}>View selected work</a>
+    </div>
+  </section>
+</BaseLayout>

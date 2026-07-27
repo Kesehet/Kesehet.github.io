@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Callout from "../components/Callout.astro";
+import { experienceNotes } from "../data/portfolio";
+---
+
+<BaseLayout
+  title="Experience"
+  description="Verified technical experience across backend systems, AI integrations, full-stack applications and real-time media."
+  path="/experience/"
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Experience</p>
+      <h1>Responsibility shown through systems and decisions.</h1>
+      <p class="lead">
+        Formal employer dates are being reconciled before publication. Until then, this page stays
+        useful by showing the technical responsibilities directly supported by the work.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell">
+      {
+        experienceNotes.map((item, index) => (
+          <div class="achievement-row">
+            <strong>{String(index + 1).padStart(2, "0")} · {item.title}</strong>
+            <div>
+              <p>{item.copy}</p>
+              <p><small>Repository evidence: {item.proof}</small></p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="shell split-layout">
+      <div class="sticky-label">
+        <p class="eyebrow">Delivery approach</p>
+        <h2>From ambiguity to an inspectable build.</h2>
+      </div>
+      <div>
+        <div class="skill-group">
+          <h3>1. Establish the operational problem</h3>
+          <p>Identify the user, repeated task, source of truth and consequence of failure.</p>
+        </div>
+        <div class="skill-group">
+          <h3>2. Draw the system boundary</h3>
+          <p>Separate client, service, data, model and third-party responsibilities before selecting abstractions.</p>
+        </div>
+        <div class="skill-group">
+          <h3>3. Build the evidence path</h3>
+          <p>Make important transformations and state transitions visible enough to debug and explain.</p>
+        </div>
+        <div class="skill-group">
+          <h3>4. Review security and operations</h3>
+          <p>Check configuration, access control, storage, failure states and deployment constraints before calling the work ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Callout
+    title="Need this kind of ownership on a software problem?"
+    copy="Share the workflow that is currently slow, disconnected or difficult to reason about."
+    href="/contact/"
+    action="Discuss the work"
+  />
+</BaseLayout>

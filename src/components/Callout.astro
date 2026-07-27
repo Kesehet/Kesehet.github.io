@@ -1,0 +1,23 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  copy: string;
+  href?: string;
+  action?: string;
+}
+const { label = "Start a conversation", title, copy, href, action } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
+---
+
+<section class="callout shell">
+  <div>
+    <p class="eyebrow">{label}</p>
+    <h2>{title}</h2>
+  </div>
+  <div>
+    <p>{copy}</p>
+    {href && action && <a class="button button-primary" href={withBase(href)}>{action}</a>}
+  </div>
+</section>

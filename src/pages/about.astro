@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Callout from "../components/Callout.astro";
+import { identity } from "../data/portfolio";
+---
+
+<BaseLayout
+  title="About"
+  description="About Hamood Siddiqui, a Python and Full-Stack Developer focused on backend systems, AI integrations and automation."
+  path="/about/"
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">About</p>
+      <h1>I like the part where software has to meet reality.</h1>
+      <p class="lead">
+        {identity.positioning} My strongest work sits at the connection points: a model and a
+        database, a client and a service, live media and connection state, or a repeated manual
+        process and a reliable automation.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell split-layout">
+      <div class="sticky-label">
+        <p class="eyebrow">How I think</p>
+        <h2>Systems before spectacle.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          A polished interface matters, but it cannot rescue an unclear workflow or a weak system
+          boundary. I start by understanding who is trying to do what, which state needs to be
+          trusted, and where failure should become visible.
+        </p>
+        <h3>Make the path inspectable</h3>
+        <p>
+          AiSQL exposes the SQL between the natural-language question and the result. The speech
+          workflow separates recording from processing. The consultation application separates
+          controllers, services and persistence. Those choices make the system easier to explain,
+          test and improve.
+        </p>
+        <h3>Separate current evidence from future architecture</h3>
+        <p>
+          Real engineering includes knowing what has been implemented and what is still a design
+          proposal. The Fill Masjid case study therefore treats the current WebRTC relay and the
+          proposed SFU-backed architecture as different milestones.
+        </p>
+        <h3>Review security as part of the product</h3>
+        <p>
+          Upload boundaries, credentials, access control and privacy are not finishing touches.
+          The case studies name security limitations directly and explain the next engineering
+          step without turning the portfolio into a vulnerability showcase.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Callout
+    title="Clear problem. Honest evidence. Practical next step."
+    copy="That is the standard I bring to a project conversation and the standard this portfolio uses for its own claims."
+    href="/contact/"
+    action="Start a conversation"
+  />
+</BaseLayout>

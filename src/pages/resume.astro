@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { capabilities, identity, resumeTodos } from "../data/portfolio";
+---
+
+<BaseLayout
+  title="Résumé"
+  description="Résumé overview for Hamood Siddiqui, Python and Full-Stack Developer."
+  path="/resume/"
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Résumé</p>
+      <h1>{identity.name}</h1>
+      <p class="lead">{identity.positioning}</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell resume-shell">
+      <div class="prose">
+        <h2>Profile</h2>
+        <p>{identity.intro}</p>
+
+        <h2>Selected technical work</h2>
+        <h3>AI and data systems</h3>
+        <p>
+          Built repository-verified workflows connecting CSV ingestion, SQLite schema context, model
+          tool calls, SQL execution and visual results; created a local speech pipeline with
+          background transcription and webhook delivery.
+        </p>
+        <h3>Full-stack applications</h3>
+        <p>
+          Implemented a layered Spring Boot and React consultation application spanning
+          authentication, doctor discovery, appointment booking and ratings.
+        </p>
+        <h3>Real-time systems</h3>
+        <p>
+          Developed WebRTC broadcaster/listener relay behavior and a Socket.IO/HLS synchronization
+          prototype with threshold-based drift correction.
+        </p>
+
+        <h2>Capabilities</h2>
+        {
+          capabilities.map((capability) => (
+            <div>
+              <h3>{capability.title}</h3>
+              <p>{capability.summary} <small>{capability.evidence}</small></p>
+            </div>
+          ))
+        }
+      </div>
+      <aside>
+        <div class="todo-card">
+          <p class="eyebrow">Publication gate</p>
+          <h2>Résumé facts awaiting confirmation</h2>
+          <p>
+            The downloadable PDF is intentionally withheld until these conflicting details are
+            reconciled:
+          </p>
+          <ul>
+            {resumeTodos.map((todo) => <li>{todo}</li>)}
+          </ul>
+        </div>
+        <div style="margin-top: 1.5rem">
+          <p class="eyebrow">Profiles</p>
+          <p><a href={identity.github} target="_blank" rel="noopener">GitHub ↗</a></p>
+          <p><a href={identity.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

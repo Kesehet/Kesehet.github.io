@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contact privacy notice"
+  description="Privacy notice for the Hamood Siddiqui portfolio contact form."
+  path="/privacy/"
+>
+  <header class="page-hero">
+    <div class="narrow">
+      <p class="eyebrow">Privacy</p>
+      <h1>Contact form privacy notice.</h1>
+      <p class="lead">A concise explanation of what the enquiry form collects and why.</p>
+    </div>
+  </header>
+  <article class="section narrow prose">
+    <h2>Information collected</h2>
+    <p>
+      The form collects your name, email address, message and consent. Company and project type are
+      optional. A hidden anti-spam field and basic request metadata may be processed to prevent abuse.
+    </p>
+    <h2>Purpose</h2>
+    <p>
+      The information is used only to understand and respond to your software-development enquiry,
+      maintain necessary correspondence and protect the form from spam or misuse.
+    </p>
+    <h2>Storage and sharing</h2>
+    <p>
+      The static site submits to a separately configured server. The production handler should send
+      mail through an authenticated SMTP provider and retain only the logs necessary for security and
+      delivery. Enquiries should not be sold or used for unrelated marketing.
+    </p>
+    <h2>What not to send</h2>
+    <p>
+      Do not submit passwords, API keys, health records, financial information or other confidential
+      data through the form.
+    </p>
+    <h2>Your choices</h2>
+    <p>
+      You can contact Hamood through LinkedIn instead of using the form. A public privacy-contact
+      email and retention period will be added before production launch.
+    </p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Callout from "../../components/Callout.astro";
+import { visibleProjects, type PortfolioProject } from "../../data/portfolio";
+
+export function getStaticPaths() {
+  return visibleProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+interface Props {
+  project: PortfolioProject;
+}
+
+const { project } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
+const publicLinks = project.links.filter((link) => link.public);
+const schema =
+  project.visibility === "public"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        name: project.title,
+        description: project.conciseDescription,
+        author: { "@type": "Person", name: "Hamood Siddiqui" },
+        programmingLanguage: project.technologies
+      }
+    : undefined;
+---
+
+<BaseLayout
+  title={project.title}
+  description={project.conciseDescription}
+  path={`/projects/${project.slug}/`}
+  type="article"
+  schema={schema}
+>
+  <header class="page-hero">
+    <div class="shell project-hero-grid">
+      <div>
+        <p class="eyebrow">{project.eyebrow}</p>
+        <h1>{project.title}</h1>
+        <p class="lead">{project.valueProposition}</p>
+        <div class="project-links">
+          {
+            publicLinks.map((link) => (
+              <a class="button button-secondary" href={link.href} target="_blank" rel="noopener">
+                {link.label}
+              </a>
+            ))
+          }
+          <a class="button button-primary" href={withBase("/contact/")}>Discuss similar work</a>
+        </div>
+      </div>
+      <div>
+        <div class="project-fact"><span>Status</span><strong>{project.statusLabel}</strong></div>
+        <div class="project-fact"><span>Category</span><strong>{project.category}</strong></div>
+        <div class="project-fact"><span>Evidence</span><strong>{project.verificationStatus}</strong></div>
+        <div class="project-fact"><span>Stack</span><strong>{project.technologies.join(", ")}</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <article class="case-study shell">
+    <section class="case-feature">
+      <div><p class="eyebrow">Major engineering feat</p></div>
+      <div>
+        <h2>{project.majorFeat}</h2>
+        <p class="large-copy">{project.detailedCaseStudy}</p>
+      </div>
+    </section>
+
+    {
+      project.media.map((media) => (
+        <figure class="case-media">
+          <img
+            src={withBase(media.src)}
+            alt={media.alt}
+            width={media.kind === "screenshot" ? "1440" : "1536"}
+            height={media.kind === "screenshot" ? "360" : "1024"}
+            loading="eager"
+          />
+          <figcaption>{media.caption}</figcaption>
+        </figure>
+      ))
+    }
+
+    <section class="case-grid">
+      <div class="case-block">
+        <p class="eyebrow">The problem</p>
+        <h2>A workflow that needed a system.</h2>
+        <p>{project.businessProblem}</p>
+        <p><strong>Intended users:</strong> {project.users}</p>
+      </div>
+      <div class="case-block">
+        <p class="eyebrow">The approach</p>
+        <h2>What the code does.</h2>
+        <p>{project.solution}</p>
+        <p><strong>Responsibility evidence:</strong> {project.role}</p>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <div class="case-block">
+        <p class="eyebrow">System flow</p>
+        <h2>Architecture</h2>
+        <ol class="timeline-list">
+          {project.architecture.map((item) => <li>{item}</li>)}
+        </ol>
+      </div>
+      <div class="case-block">
+        <p class="eyebrow">Implementation</p>
+        <h2>Verified features</h2>
+        <ul class="plain-list">
+          {project.majorFeatures.map((feature) => <li>{feature}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <div class="case-block">
+        <p class="eyebrow">Technical decisions</p>
+        <h2>Challenges tackled</h2>
+        <ul class="plain-list">
+          {project.technicalChallenges.map((challenge) => <li>{challenge}</li>)}
+        </ul>
+      </div>
+      <div class="case-block">
+        <p class="eyebrow">Evidence</p>
+        <h2>What supports the story</h2>
+        <ul class="plain-list">
+          {project.evidence.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <div class="case-block">
+        <p class="eyebrow">Result</p>
+        <h2>What was established</h2>
+        <ul class="plain-list">
+          {project.outcomes.map((outcome) => <li>{outcome}</li>)}
+        </ul>
+      </div>
+      <div class="case-block">
+        <p class="eyebrow">Engineering review</p>
+        <h2>What I would strengthen next</h2>
+        <ul class="plain-list">
+          {project.nextSteps.map((step) => <li>{step}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <div class="case-block">
+        <p class="eyebrow">Security and privacy</p>
+        <h2>Boundaries that matter</h2>
+        <ul class="plain-list">
+          {project.securityConsiderations.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="case-block">
+        <p class="eyebrow">Reflection</p>
+        <h2>What the work teaches</h2>
+        <ul class="plain-list">
+          {project.lessons.map((lesson) => <li>{lesson}</li>)}
+        </ul>
+        <ul class="tag-list">
+          {project.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <aside class="verification-note">
+      <strong>Evidence note:</strong> This case study distinguishes repository-verified implementation
+      from items that still need confirmation. It does not claim unverified usage, performance,
+      employment context or production outcomes.
+    </aside>
+  </article>
+
+  <Callout
+    label="Next project"
+    title="Need a similar system boundary worked through?"
+    copy="Tell me the users, workflow and constraints. We can start from the operational problem and identify the smallest useful system."
+    href="/contact/"
+    action="Discuss a project"
+  />
+</BaseLayout>

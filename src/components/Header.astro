@@ -1,0 +1,54 @@
+---
+import { identity } from "../data/portfolio";
+
+const base = import.meta.env.BASE_URL;
+const withBase = (value: string) => `${base}${value.replace(/^\//, "")}`;
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: "/projects/", label: "Work" },
+  { href: "/about/", label: "About" },
+  { href: "/experience/", label: "Experience" },
+  { href: "/skills/", label: "Skills" },
+  { href: "/resume/", label: "Résumé" },
+  { href: "/contact/", label: "Contact" }
+];
+---
+
+<header class="site-header">
+  <div class="shell nav-shell">
+    <a class="brand" href={withBase("/")} aria-label={`${identity.name}, home`}>
+      <span class="brand-mark" aria-hidden="true">HS</span>
+      <span>{identity.name}</span>
+    </a>
+    <button
+      class="icon-button nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+      data-nav-toggle
+    >
+      <span></span><span></span>
+    </button>
+    <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-nav>
+      {
+        links.map((link) => (
+          <a
+            href={withBase(link.href)}
+            aria-current={currentPath.includes(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <button
+      class="icon-button theme-toggle"
+      type="button"
+      aria-label="Switch color mode"
+      data-theme-toggle
+    >
+      <span class="theme-icon" aria-hidden="true">◐</span>
+    </button>
+  </div>
+</header>

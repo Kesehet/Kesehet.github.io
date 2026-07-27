@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Callout from "../components/Callout.astro";
+import { capabilities } from "../data/portfolio";
+
+const groups = [
+  {
+    title: "Python and backend",
+    summary: "APIs, automation, local utilities, relational data and service workflows.",
+    skills: ["Python", "Flask", "FastAPI", "pandas", "SQLite", "MySQL", "REST", "background workers"]
+  },
+  {
+    title: "AI and speech",
+    summary: "Models used as part of a controlled workflow, connected to tools or delivery channels.",
+    skills: ["Ollama", "Gemini", "faster-whisper", "CTranslate2", "LLM tool calling", "audio capture"]
+  },
+  {
+    title: "Full-stack",
+    summary: "Interfaces backed by structured APIs and domain logic.",
+    skills: ["React", "Redux", "Astro", "JavaScript", "Spring Boot", "Laravel", "PHP", "HTML/CSS"]
+  },
+  {
+    title: "Real-time and desktop",
+    summary: "Explorations in media state, peer connections, events and kiosk constraints.",
+    skills: ["WebRTC", "Socket.IO", "HLS.js", "Electron", "Node.js", "Express"]
+  }
+];
+---
+
+<BaseLayout
+  title="Skills"
+  description="Technical capabilities of Hamood Siddiqui across Python, backend systems, AI integration, full-stack development and real-time applications."
+  path="/skills/"
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Skills</p>
+      <h1>Capabilities connected to delivered code evidence.</h1>
+      <p class="lead">
+        Technologies are grouped by the work they enable. No animated percentages, proficiency
+        scores or decorative rankings.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell split-layout">
+      <div class="sticky-label">
+        <p class="eyebrow">Core capabilities</p>
+        <h2>What I can help build.</h2>
+      </div>
+      <div>
+        {
+          capabilities.map((capability) => (
+            <div class="skill-group">
+              <h3>{capability.title}</h3>
+              <p>{capability.summary}</p>
+              <p><small>{capability.evidence}</small></p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="shell">
+      {
+        groups.map((group) => (
+          <div class="case-grid">
+            <div>
+              <p class="eyebrow">Technical toolkit</p>
+              <h2>{group.title}</h2>
+            </div>
+            <div>
+              <p>{group.summary}</p>
+              <ul class="tag-list">{group.skills.map((skill) => <li>{skill}</li>)}</ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <Callout
+    title="The stack should serve the workflow."
+    copy="If your project needs a combination that is not listed verbatim, the first question is still what the system must do and where its boundaries sit."
+    href="/contact/"
+    action="Discuss the system"
+  />
+</BaseLayout>
